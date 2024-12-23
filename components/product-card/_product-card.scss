@@ -1,0 +1,73 @@
+.product-card {
+    max-width: 20rem;
+    margin: 0 auto;
+
+    // @include media('>=phone') {
+    //     max-width: 15rem;
+    // }
+    
+            svg {
+                width: 1.2rem;
+                height: auto;
+    
+                @include media('>=phone') {
+                    width: 1.5rem;
+                }
+            }
+
+    &__actions {
+        display: none;
+        flex-direction: column;
+
+        @include media('<=360px') {
+            position: absolute;
+            right: 0;
+            bottom: 1.5rem;
+
+        }
+
+    }
+
+    .heart-svg {
+        margin-top: .2rem;
+
+        &.active {
+            @apply fill-red-600 stroke-none;
+        }
+
+
+
+
+    }
+
+    &__img {
+        @apply shadow shadow-gray-300;
+        aspect-ratio: 1 / 1.2;
+
+        img {}
+    }
+
+    &__content {
+        position: relative;
+        padding: 1.5rem 0rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: .8rem;
+        gap: .5rem 0rem;
+        flex-direction: row;
+
+        @include media('>=phone') {
+            font-size: 1rem;
+        }
+
+        /////////////////////////////////////////
+    }
+
+    &__name {
+        margin-bottom: .5rem;
+        font-weight: 600;
+    }
+
+    &__like {}
+}

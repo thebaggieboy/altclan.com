@@ -1,0 +1,83 @@
+.user-profile {
+	position: relative;
+
+	&__form {
+		position: absolute;
+		inset: 0;
+		margin: auto;
+		background: rgba(0, 0, 0, 0.432);
+		display: none;
+		align-items: center;
+		padding: 1rem;
+
+		@include media('>=tablet') {
+			padding: 2rem;
+		}
+
+		>div {
+			width: 100%;
+		}
+
+		&.active {
+			display: grid;
+		}
+	}
+
+	&__nav {
+		display: flex;
+		justify-content: center;
+		gap: 0rem 2rem;
+		padding: 1rem 0rem;
+
+		@include media(">=tablet") {
+			font-size: 1.3rem;
+		}
+	}
+
+	&__nav-item {
+		font-weight: 600;
+		cursor: pointer;
+
+		&.active {
+			border-bottom: 2px solid black;
+		}
+	}
+
+	&__sections {
+		.account {
+			max-width: 85rem;
+			margin: 0 auto;
+			padding: 2rem;
+
+			@include media(">=tablet") {
+				display: flex;
+				gap: 0rem 6rem;
+			}
+
+			&__nav {
+				padding: 0rem 2rem;
+				font-size: 1.2rem;
+			}
+
+			&__nav-item {
+				padding: 1rem 0rem;
+				text-transform: capitalize;
+				font-weight: 600;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				gap: 0rem 1rem;
+
+				img {
+					transition: all .3s ease-in-out;
+				}
+
+				&:hover {
+					img {
+						transform: translateX(10px);
+					}
+				}
+			}
+		}
+	}
+}

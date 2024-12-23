@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'alata';
+    src: url('/fonts/Alata/Alata-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'josephin';
+    src: url('/fonts/Josefin_Sans/JosefinSans-Light.ttf');
+}
+
+
+@mixin fontAlata{
+    font-family: 'alata','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+@mixin fontJosephin {
+    font-family: 'josephin', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

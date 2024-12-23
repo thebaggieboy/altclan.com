@@ -1,0 +1,1621 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Preloader.css */
+
+
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.loadingtext {
+  color: #FFF;
+}
+
+.loadingtext h1{
+  font-size: 80px;
+  font-weight: 600;
+  color: #FFF;
+  text-shadow: 
+    1px 0px 1px #ccc, 0px 1px 1px #eee, 
+    2px 1px 1px #ccc, 1px 2px 1px #eee,
+    3px 2px 1px #ccc, 2px 3px 1px #eee,
+    4px 3px 1px #ccc, 3px 4px 1px #eee,
+    5px 4px 1px #ccc, 4px 5px 1px #eee,
+    6px 5px 1px #ccc, 5px 6px 1px #eee,
+    7px 6px 1px #ccc;
+}
+
+.loadingtext p{
+  text-align: center;
+  margin-top: 3%;
+  font-weight: 200;
+  font-size: 30px;
+}
+
+.content{
+  max-width: 80%;
+  margin: auto;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+}
+.discountCard {
+  font-family:'Poppins';
+  font-weight:'bold';
+  background-image:url('/images/sofa.jpg');
+  background-size:cover;
+  padding:180px;
+}
+
+.aestheticAdventure {
+  font-family:'Poppins';
+  font-weight:'bold';
+  background-image:url('/bg-images/different-modern-vases-with-blue-red-light.jpg');
+  background-size:cover;
+  padding:240px;
+}
+.description {
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  font-size: 0.85rem;
+  max-width: var(--max-width);
+  width: 100%;
+  z-index: 2;
+  font-family: var(--font-mono);
+}
+
+.description a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.description p {
+  position: relative;
+  margin: 0;
+  padding: 1rem;
+  background-color: rgba(var(--callout-rgb), 0.5);
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  border-radius: var(--border-radius);
+}
+
+.code {
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(25%, auto));
+  width: var(--max-width);
+  max-width: 100%;
+}
+
+.card {
+  padding: 1rem 1.2rem;
+  border-radius: var(--border-radius);
+  background: rgba(var(--card-rgb), 0);
+  border: 1px solid rgba(var(--card-border-rgb), 0);
+  transition: background 200ms, border 200ms;
+}
+
+.card span {
+  display: inline-block;
+  transition: transform 200ms;
+}
+
+.card h2 {
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+.card p {
+  margin: 0;
+  opacity: 0.6;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 30ch;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 4rem 0;
+}
+
+.center::before {
+  background: var(--secondary-glow);
+  border-radius: 50%;
+  width: 480px;
+  height: 360px;
+  margin-left: -400px;
+}
+
+.center::after {
+  background: var(--primary-glow);
+  width: 240px;
+  height: 180px;
+  z-index: -1;
+}
+
+.center::before,
+.center::after {
+  content: '';
+  left: 50%;
+  position: absolute;
+  filter: blur(45px);
+  transform: translateZ(0);
+}
+
+.logo,
+.thirteen {
+  position: relative;
+}
+
+.thirteen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+  padding: 25px 10px;
+  margin-left: 16px;
+  transform: translateZ(0);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0px 2px 8px -1px #0000001a;
+}
+
+.thirteen::before,
+.thirteen::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+.thirteen::before {
+  animation: 6s rotate linear infinite;
+  width: 200%;
+  height: 200%;
+  background: var(--tile-border);
+}
+
+.thirteen::after {
+  inset: 0;
+  padding: 1px;
+  border-radius: var(--border-radius);
+  background: linear-gradient(
+    to bottom right,
+    rgba(var(--tile-start-rgb), 1),
+    rgba(var(--tile-end-rgb), 1)
+  );
+  background-clip: content-box;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+  }
+
+  .card:hover span {
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .thirteen::before {
+    animation: none;
+  }
+
+  .card:hover span {
+    transform: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .aestheticAdventure {
+    font-family:'Poppins,';
+    font-weight:'bold';
+    background-image:url('/bg-images/different-modern-vases-with-blue-red-light.jpg');
+    background-size:cover;
+    padding:40px;
+  }
+  .content {
+    padding: 0rem;
+    overflow-x: hidden;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 120px;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .card {
+    padding: 1rem 2.5rem;
+  }
+
+  .card h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .center {
+    padding: 8rem 0 6rem;
+  }
+
+  .center::before {
+    transform: none;
+    height: 300px;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
+
+  .description a {
+    padding: 1rem;
+  }
+
+  .description p,
+  .description div {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+  }
+
+  .description p {
+    align-items: center;
+    inset: 0 0 auto;
+    padding: 2rem 1rem 1.4rem;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
+    background: linear-gradient(
+      to bottom,
+      rgba(var(--background-start-rgb), 1),
+      rgba(var(--callout-rgb), 0.5)
+    );
+    background-clip: padding-box;
+    backdrop-filter: blur(24px);
+  }
+
+  .description div {
+    align-items: flex-end;
+    pointer-events: none;
+    inset: auto 0 0;
+    padding: 2rem;
+    height: 200px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgb(var(--background-end-rgb)) 40%
+    );
+    z-index: 1;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1120px) {
+  .grid {
+    grid-template-columns: repeat(2, 50%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .vercelLogo {
+    filter: invert(1);
+  }
+
+  .logo,
+  .thirteen img {
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.col {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.col img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 600px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* .brandContent {
+  max-width: 60%;
+  margin: auto;
+  padding-top: 6%;
+} */
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.container .button {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #fff;
+  color: #000;
+  font-size: 15px;
+  padding: 8px 48px;
+  border: 1px solid #000;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.centerButton {
+  margin: 0;
+  position: inherit;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 1px solid #888;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 17px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}
+
+.h1{
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+
+div.scrollImages a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.imageButton{
+  border: none;
+  color: #000;
+  padding: 10px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  left: 0%;
+  margin-top: 3%;
+  position: relative;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #000;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}
+
+.imageCard img{
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.col2 {
+  float: left;
+  width: 50%;
+  padding-top: 0%;
+}
+
+.top{
+  margin-top: 8%;
+}
+
+.colsContainer {
+  position: relative;
+  width: 100%;
+}
+
+.colsContainer img {
+  width: 100%;
+  height: 850px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.colsContainer button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  padding: 10px 50px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+@media screen and (max-width: 600px) {
+  .content{
+    max-width: 100%;
+    margin: auto;
+    overflow-y: hidden;
+  }
+  .aestheticAdventure {
+    font-family:'Poppins,';
+    font-weight:'bold';
+    background-image:url('/bg-images/different-modern-vases-with-blue-red-light.jpg');
+    background-size:cover;
+    padding:40px;
+  }
+  .col {
+    float: left;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .brandContent {
+    max-width: 100%;
+    margin: auto;
+    padding-top: 6%;
+  }
+
+  .imageCard {
+    transition: 0.3s;
+    width: 100%;
+    float: left;
+    padding: 10px;
+  }
+  
+  .imageButton{
+    border: none;
+    color: #000;
+    padding: 10px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    left: 0%;
+    margin-top: 3%;
+    position: relative;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #000;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+  }
+  
+  .imageCard img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  .col img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  .h1{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+  
+  .container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .container .button {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: #000;
+    font-size: 15px;
+    padding: 8px 48px;
+    border: 1px solid #000;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .centerButton {
+    margin: 0;
+    position: absolute;
+    margin-top: 10%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: 1px solid #888;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+  }
+
+  .col2 {
+    float: left;
+    width: 100%;
+    padding-top: 5%;
+  }
+  
+  .top{
+    margin-top: 20%;
+  }
+
+  .colsContainer {
+    position: relative;
+    width: 100%;
+    margin-top: 0%;
+  }
+  
+  .colsContainer img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+  
+  .colsContainer button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: #000;
+    font-size: 15px;
+    padding: 10px 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    letter-spacing: 3px;
+  }
+}
+
+.padding{
+  padding: 18%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.padding h1{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 1.4em;
+  border-bottom: 2px solid #000;
+  width: 11%;
+  padding-bottom: 10px;
+}
+
+.padding p{
+  padding-top: 2%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  letter-spacing: 3px;
+  line-height: 180%;
+  font-size: 1.1em;
+}
+
+.col33 {
+  float: left;
+  width: 25%;
+  padding: 20px;
+  /* padding: 20px 60px; */
+  padding-left: 0px;
+}
+
+.aboutCards {
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  text-align: left;
+  background-color: #fff;
+  height: 200px;
+  width: 90%;
+}
+
+.aboutCards p{
+  font-size: 13px;
+  padding-top: 5%;
+}
+
+.aboutCards h3{
+  font-size: 3em;
+}
+
+.aboutCards .bottom{
+  font-weight: 300;
+  text-align: center;
+  padding-top: 15%;
+  font-size: 10px;
+}
+
+.section {
+  padding: 18%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: #ddd;
+}
+
+.section img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  padding-bottom: 10px;
+}
+
+.section h1{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 1.4em;
+  border-bottom: 2px solid #000;
+  width: 12%;
+  padding-bottom: 10px;
+}
+
+.section .p{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 1.4em;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.team {
+  margin: auto;
+  text-align: left;
+  font-size: 18px;
+}
+
+.team p{
+  padding-top: 10px;
+}
+
+.team .role {
+  color: grey;
+  font-size: 15px;
+  padding-top: 0px;
+}
+
+.contentContainer {
+  padding: 30px;
+}
+
+.colContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.columnOne {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+.columnOne{
+  padding-top: 1%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  letter-spacing: 3px;
+  line-height: 100%;
+  font-size: 0.9em;
+}
+
+.columnTwo {
+  float: left;
+  width: 50%;
+  padding: 25px;
+}
+
+.columnTwo img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  padding-bottom: 10px;
+}
+
+.columnOne .xlFont {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #000;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.headSection{
+  max-width: 85%;
+  height: 100px;
+  margin: auto;
+  margin-top: 1%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.headContainer { 
+  height: 850px;
+  position: relative;
+}
+
+.headText {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  -ms-transform: translate(-30%, -70%);
+  transform: translate(-30%, -70%);
+}
+
+.headText h1{
+  font-size: 25px;
+  text-align: center;
+  padding: 15px;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+
+.headText p{
+  font-size: 18px;
+  text-align: center;
+  padding: 20px;
+  line-height: 30px;
+  letter-spacing: 2px;
+  width: 100%;
+}
+
+.headText .headButton{
+  margin-left: 20%;
+  margin-top: 5%;
+  border: 1px solid #000;
+  padding: 10px 25px 10px 25px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1.1em;
+}
+
+.shopSection{
+  max-width: 100%;
+  margin: auto;
+  font-family: 'Poppins', sans-serif;
+  
+}
+
+.shopColum{
+  float: left;
+  width: 50%;
+  
+  margin-top: 0%;
+}
+
+.shopColum img{
+  width: 100%;
+  height: 800px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  padding-bottom: 10px;
+}
+
+.shopContainer {
+  position: relative;
+  text-align: center;
+  color: #FFF;
+}
+
+.shopTextCentered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background: rgba(0, 0, 0, 0.5); */
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.shopTextCentered img{
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.shopTextCentered p{
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+  line-height: 30px;
+  letter-spacing: 2px;
+  width: 100%;
+  font-weight: 500;
+}
+
+.shopBtn {
+  border-bottom: 3px solid #fff;
+  color: #000;
+  background-color: #fff;
+  padding: 5px 20px 5px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 5%;
+}
+
+.shopBox {
+  position: relative;
+  margin: 0 auto;
+}
+
+.shopBox img {vertical-align: middle;}
+
+.shopBox .shopContent {
+  position: absolute;
+  bottom: 1%;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+.shopContent h1{
+  font-size: 30px;
+  text-align: left;
+  padding: 5px;
+  line-height: 40px;
+  letter-spacing: 2px;
+  padding-left: 0px;
+}
+
+.shopContent p{
+  font-size: 18px;
+  text-align: left;
+  padding: 10px;
+  line-height: 30px;
+  letter-spacing: 2px;
+  width: 80%;
+  padding-left: 0px;
+}
+
+.imagesContainer {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.imagesContent{
+  padding-top: 0%;
+}
+
+.topRight {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.imagesCard {
+  max-width: 100%;
+  margin: auto;
+  text-align: left;
+}
+
+.imagesCard p{
+  width: 50%;
+  padding: 10px;
+  padding-left: 0px;
+}
+
+.imagesCard h1{
+  width: 70%;
+  padding: 5px;
+  padding-left: 0px;
+  line-height: 30px;
+  font-size: 18px;
+}
+
+.imagesCard .img{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  padding-bottom: 10px;
+}
+
+.imagesTitle{
+  color: #aaa;
+}
+
+.imagesPrice {
+  color: #bbb;
+  font-size: 15px;
+}
+
+.imagesCard button:hover {
+  opacity: 0.7;
+}
+
+.boftwColumn {
+  float: left;
+  width: 33.3333%;
+  padding: 10px;
+}
+
+.botwSection{
+  max-width: 85%;
+  height: 400px;
+  margin: auto;
+  margin-top: 35%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.botwP{
+  float: left;
+  padding: 30px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.5em;
+  padding-bottom: 0px;
+}
+
+.botwShop{
+  border-bottom: 2px solid #000;
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.botwCont{
+  padding-top: 5%;
+}
+
+.boftwContainer {
+  position: relative;
+  width: 100%;
+}
+
+.boftwContainer img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  padding-bottom: 10px;
+}
+
+.boftwContainer p{
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 3%;
+  margin-top: 2%;
+}
+
+.boftwContainer a{
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #000;
+  padding-top: 50px;
+  padding-bottom: 5px;
+}
+
+.headerimage{
+  display: block;
+}
+
+.Category{
+  max-width: 100%;
+  height: 500px;
+  margin: auto;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 2%;
+  padding: 0;
+}
+
+
+
+.Category .button{
+  padding: 20px 0px 0px 0px;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+}
+
+@media screen and (max-width: 600px) {
+  .columnOne,
+  .columnTwo {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+  }
+  .discountCard {
+    font-family:'Poppins,';
+    font-weight:'bold';
+    background-image:url('/images/sofa.jpg');
+    background-size:cover;
+    padding:60px;
+  }
+  .aestheticAdventure {
+    font-family:'Poppins,';
+    font-weight:'bold';
+    background-image:url('/bg-images/different-modern-vases-with-blue-red-light.jpg');
+    background-size:cover;
+    padding:40px;
+  }
+  .columnOne .xlFont {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #000;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    text-transform: uppercase;
+  }
+
+  .contentContainer {
+    padding: 10px;
+  }
+
+  .padding{
+    padding: 10%;
+    padding-top: 10%;
+    padding-bottom: 2%;
+  }
+  
+  .padding h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+    border-bottom: 2px solid #000;
+    width: 35%;
+    padding-bottom: 10px;
+  }
+  
+  .padding p{
+    padding-top: 8%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    letter-spacing: 3px;
+    line-height: 180%;
+    font-size: 1.2em;
+  }
+
+  .section {
+    padding: 5%;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    background: #ddd;
+  }
+  
+  .section img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    padding-bottom: 10px;
+  }
+  
+  .section h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 1.3em;
+    border-bottom: 2px solid #000;
+    width: 40%;
+    padding-bottom: 10px;
+  }
+  
+  .section .p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 1.4em;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  .col-33 {
+    width: 100%;
+  }
+
+  .aboutCards {
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    text-align: left;
+    background-color: #fff;
+    height: 200px;
+    width: 100%;
+  }
+
+  .aboutCards p{
+    font-size: 12px;
+    padding-top: 5%;
+  }
+  
+  .aboutCards h3{
+    font-size: 2em;
+  }
+  
+  .aboutCards .bottom{
+    font-weight: 300;
+    text-align: center;
+    padding-top: 15%;
+    font-size: 10px;
+  }
+
+  .headSection{
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 70%;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .headContainer { 
+    height: 300px;
+    position: relative;
+  }
+
+  .headText {
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    top: 30%;
+  }
+
+  .headText h1{
+    font-size: 30px;
+    text-align: center;
+    padding: 15px;
+    line-height: 40px;
+    letter-spacing: 2px;
+  }
+
+  .headText p{
+    font-size: 18px;
+    text-align: center;
+    padding: 20px;
+    line-height: 30px;
+    letter-spacing: 2px;
+    width: 100%;
+  }
+
+  .headText .headButton{
+    margin-left: 28%;
+    margin-top: 4%;
+    border: 2px solid #000;
+    padding: 10px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+
+  .headerimage{
+    display: none;
+  }
+
+  .shopSection{
+    max-width: 100%;
+    height: 1000px;
+    margin: auto;
+   
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .shopColum{
+    float: left;
+    width: 100%;
+  
+    margin-top: 0%;
+  }
+  
+  .shopColum img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    padding-bottom: 0px;
+  }
+  
+  .shopContainer {
+    position: relative;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .shopTextCentered {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    /* background: rgba(0, 0, 0, 0.5); */
+    padding: 0px;
+  }
+  
+  .shopTextCentered img{
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+  }
+  
+  .shopTextCentered p{
+    font-size: 12px;
+    text-align: center;
+    padding: 20px;
+    line-height: 10px;
+    letter-spacing: 2px;
+    width: 100%;
+    font-weight: 700;
+  }
+  
+  .shopBtn {
+    border: 3px solid #000;
+    color: #000;
+    padding: 5px 30px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  .shopBox {
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  .shopBox img {vertical-align: middle;}
+  
+  .shopBox .shopContent {
+    position: absolute;
+    bottom: 1%;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .shopContent h1{
+    font-size: 20px;
+    text-align: left;
+    padding: 5px;
+    line-height: 40px;
+    letter-spacing: 2px;
+    padding-left: 0px;
+  }
+  
+  .shopContent p{
+    font-size: 14px;
+    text-align: left;
+    padding: 0px;
+    line-height: 30px;
+    letter-spacing: 2px;
+    width: 80%;
+    padding-left: 0px;
+  }
+
+  .imagesSection{
+    max-width: 90%;
+    height: 950px;
+    margin: auto;
+    margin-top: 60%;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .imagesSection .p{
+    float: left;
+    padding: 0px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    width: 50%;
+  }
+
+  .imagesSection button{
+    float: right;
+    border: 2px solid #000;
+    padding: 10px 10px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  .imagesContainer {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .imagesContent{
+    padding-top: 25%;
+  }
+
+  .topRight {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+  }
+
+  .imagesCard {
+    max-width: 100%;
+    margin: auto;
+    text-align: left;
+  }
+
+  .imagesCard p{
+    width: 50%;
+    padding: 10px;
+    padding-left: 0px;
+  }
+
+  .imagesCard h1{
+    width: 100%;
+    padding: 5px;
+    padding-left: 0px;
+    line-height: 30px;
+    font-size: 14px;
+  }
+
+  .imagesCard .img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    padding-bottom: 10px;
+  }
+
+  .imagesTitle{
+    color: #aaa;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .imagesPrice {
+    color: #bbb;
+    font-size: 13px;
+  }
+
+  .imagesCard button:hover {
+    opacity: 0.7;
+  }
+
+  .col33{
+    width: 50%;
+  }
+
+  .boftwColumn {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+
+  .botwSection{
+    max-width: 90%;
+    height: 650px;
+    margin: auto;
+    margin-top: 0%;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .botwP{
+    float: left;
+    padding: 10px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.5em;
+    padding-bottom: 20px;
+  }
+
+  .botwShop{
+    border-bottom: 3px solid #000;
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 95%;
+  }
+
+  .botwCont{
+    padding-top: 5%;
+  }
+
+  .boftwContainer {
+    position: relative;
+    width: 100%;
+  }
+
+  .boftwContainer img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    padding-bottom: 10px;
+  }
+
+  .boftwContainer .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .boftwContainer .btn:hover {
+    background-color: black;
+  }
+
+  .boftwContent { 
+    height: 300px;
+    position: relative;
+  }
+
+  .boftwCenter {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .boftwCenter p{
+    font-size: 3em;
+  }
+
+  .boftwCenter button{
+    background-color: #000;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10%;
+    left: 30%;
+    position: absolute;
+  }
+
+  .Category{
+    max-width: 80%;
+    height: 500px;
+    margin: auto;
+    margin-top: 15%;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .Category .header{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 2%;
+    letter-spacing: 1px;
+  }
+
+  .Category .button{
+    padding: 20px 0px 0px 0px;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 0.8em;
+  }
+}
+
+.mainComponents{
+  max-width: 100%;
+  margin: auto;
+  letter-spacing: 3px;
+  line-height: 180%;
+}

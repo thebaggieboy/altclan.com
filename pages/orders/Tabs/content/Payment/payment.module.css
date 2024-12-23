@@ -1,0 +1,331 @@
+.paymentContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.paymentOption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.savedPayment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.paymentInfo {
+    display: flex;
+    align-items: center;
+}
+
+.paymentInfo img {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.paymentText {
+    display: flex;
+    flex-direction: column;
+}
+
+.paymentText p {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.savedPaymentRight {
+    display: flex;
+    align-items: center;
+}
+
+.savedPaymentRight span {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.savedPaymentRight button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.checkContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.checkContainer input {
+    display: none;
+}
+
+.checkContainer p {
+    margin: 0;
+    font-size: 15px;
+    cursor: pointer;
+    color: #000;
+}
+
+.checkContainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+
+.checkContainerHeader {
+    overflow: hidden;
+    margin-bottom: 22px;
+    padding-top: 0px;
+}
+
+.checkContainerHeader p {
+    float: left;
+    text-align: center;
+    padding: 8px 0px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.checkContainerHeader p.addNewPayment {
+    border: 1px solid #000;
+    font-size: 15px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.checkContainerHeaderRight {
+    float: right;
+}
+
+.checkContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin-top: 2px;
+    margin-left: 10px;
+}
+
+.checkContainer input:checked ~ .checkmark {
+    background-color: #000;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkContainer input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkContainer .checkmark:after {
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.paymentOption {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.paymentOption button {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.tickIcon {
+    color: green;
+    margin-left: 10px;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popupInner {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.popupInner p{
+    margin-top: 7px;
+}
+
+.popupInner button {
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.successMessage {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.fullPagePopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.fullPagePopupInner {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    width: 78%;
+    position: relative;
+}
+
+.fullPagePopupInner h2{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.closeSelect{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    gap: 10px
+}
+
+.closeSelect button{
+    border: 1px solid #000;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin-right: 12px;
+}
+
+.remove{
+    border: 1px solid red;
+    color: red;
+}
+
+.paymentMethodButtons{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.paymentMethodButtons button{
+    text-align: left !important;
+    margin-top: 10px;
+    display: flex;
+    font-size: 17px;
+    gap: 4px;
+}
+
+.paymentMethodButtons button svg{
+    width: 13px;
+    height: 13px;
+    margin-top: 5px;
+}
+
+.formContainer{
+    margin-top: 30px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 1px solid #000;
+    padding: 15px;
+}
+
+.formContainer h3{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.formContainer form{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    background-color: #000;
+    color: #FFF;
+    padding: 20px;
+}
+
+.formContainer form input{
+    background-color: inherit;
+    color: inherit;
+    margin-top: 5px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.formContainer form label{
+    font-size: 18px;
+}
+
+.fullPagePopupInner h3{
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}

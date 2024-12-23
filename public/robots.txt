@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /profile
+Disallow: /brands/profile
+Disallow: /brands/dashboard
+Disallow: /brands/merchandise/new
+Disallow: /settings
+Disallow: /api
+
+Allow: /
+Allow: /sitemap.xml

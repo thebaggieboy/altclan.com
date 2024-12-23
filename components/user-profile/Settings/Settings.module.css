@@ -1,0 +1,22 @@
+.settingsCon{
+    float: right;
+    width: 70%;
+}
+
+.paddingTop{
+    margin-top: 35px;
+}
+
+.submitButton{
+    float: right;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background: #FFF;
+    padding: 10px 20px;
+    color: #000;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    line-height: normal;
+    margin-top: 10%;
+}

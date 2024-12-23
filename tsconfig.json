@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/brands/BrandOfTheWeek.jsx",
+    "components/brands/BrandDiv.jsx",
+    "components/brands/BrandHeaderTab.jsx",
+    "components/components/component4.jsx",
+    "components/components/component3.jsx",
+    "components/components/component6.jsx",
+    "components/components/component7.jsx",
+    "components/components/component2.jsx",
+    "components/ImagesDiv.jsx",
+    "components/ShopDiv.jsx",
+    "pages/products/index.jsx",
+    ".next/types/**/*.ts"
+, "app/layout.tsx", "pages/brands/index.jsx", "pages/cart.jsx", "components/brands/BrandMerchForm.jsx", "components/Dashboard/E-commerce.jsx", "emails/Welcome.jsx"  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "paths": {
+    "@/*": ["./*"]
+  }
+}

@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./utils/reset";
+@import "./utils/variables";
+@import "./utils/breakpoints";
+@import "./utils/fonts";
+
+@import "./product-card";
+@import "./profile";
+
+.swiper-pagination-bullet {
+  background: rgb(0, 75, 187);
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+/**** HOME STYLES*/
+
+.hero-carousel {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  @include media(">=phone") {
+    aspect-ratio: 5 / 2;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.shop-by {
+  img {
+    aspect-ratio: 1 / 1;
+    @include media(">=tablet") { 
+      aspect-ratio: 4 / 5;
+    }
+    object-fit: cover;
+  }
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2rem;
+  }
+}
+
+.brand-of-week {
+  img {
+    aspect-ratio: 1 / 0.9;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero-carousel {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+}

@@ -1,0 +1,194 @@
+.loginContainer {
+    max-width: 80%;
+    margin: auto;
+    margin-top: 2%;
+    height: 900px;
+}
+
+.columnImage {
+    float: left;
+    width: 50%;
+    padding: 0px;
+}
+
+.columnText {
+    float: left;
+    width: 50%;
+    padding: 0px;
+    height: 80%;
+}
+
+.img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 620px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    padding-bottom: 120px;
+}
+
+.form {
+    height: 620px;
+    background-color: #fff;
+    padding: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.input {
+    width: 80%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 25px;
+    resize: vertical;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.submit {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    font-size: 14px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 5%;
+}
+
+.alternative {
+    padding-left: 25%;
+    padding-top: 2%;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.link {
+    border-bottom: 1px solid #000;
+    font-weight: 300;
+    margin-left: 5px;
+}
+
+.greeting {
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+    padding-top: 20px;
+}
+
+.login {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 200;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.head {
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.logo {
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+}
+
+@media screen and (max-width: 600px) {
+    .columnImage {
+        float: left;
+        width: 100%;
+        padding: 0px;
+        display: none;
+    }
+    .columnText {
+        float: left;
+        width: 80%;
+        padding: 0px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .loginContainer {
+        max-width: 100%;
+        margin: auto;
+        margin-top: 10%;
+        height: 650px;
+    }
+    .form {
+        height: 600px;
+        background-color: #fff;
+        padding: 0px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+    .input {
+        width: 80%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 25px;
+        resize: vertical;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .submit {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #000;
+        padding: 12px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 50%;
+        font-size: 14px;
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 5%;
+    }
+    .alternative {
+        padding-left: 18%;
+        padding-top: 5%;
+        font-size: 13px;
+        font-weight: 100;
+    }
+    .link {
+        border-bottom: 1px solid #000;
+        font-weight: 300;
+        margin-left: 5px;
+    }
+    .greeting {
+        font-size: 24px;
+        text-align: center;
+        letter-spacing: 1px;
+        padding-top: 20px;
+    }
+    .login {
+        font-size: 15px;
+        text-align: center;
+        font-weight: 200;
+        padding-top: 5px;
+        padding-bottom: 20px;
+        letter-spacing: 0.5px;
+        padding: 10px;
+    }
+    .head {
+        font-size: 25px;
+        font-weight: 300;
+    }
+    .logo {
+        width: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 5%;
+    }
+}
