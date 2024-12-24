@@ -26,7 +26,7 @@ export default function BrandLogo() {
 
   const brandUserData = brand_user;
 
-  const { isPending, error, mutateAsync: updateFn, data } = useUpdateProfileData("https://altclan-brands-api-1-1-1.onrender.com/api/users/", brand_user[0]?.id, setUser)
+  const { isPending, error, mutateAsync: updateFn, data } = useUpdateProfileData("https://altclan-brands-api-1-1.onrender.com/api/users/", brand_user[0]?.id, setUser)
 
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
