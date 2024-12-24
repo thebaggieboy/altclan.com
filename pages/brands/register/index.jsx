@@ -112,6 +112,7 @@ export default function SignUp() {
 			const url = "https://altclan-brands-api-1-1.onrender.com/auth/users/"
 			const res = await fetch(url, {
                 method: "POST",
+			 
                 headers: {
 
                     "Content-Type": "application/json",
