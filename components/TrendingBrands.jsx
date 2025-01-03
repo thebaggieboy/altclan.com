@@ -25,7 +25,7 @@ export default function TrendingBrands() {
 	
 	
 	) {
-		const  url = "https://altclan-brands-api-1-1-1.onrender.com/api/users/"
+		const  url = "https://altclan-brands-api-1-1.onrender.com/api/users/"
 		const res =   await fetch(url, {
 			method: "GET",
 			headers: {

@@ -23,7 +23,7 @@ export default function TrendingMerch() {
 	
 	
 	) {
-		const  url = "https://altclan-brands-api-1-1-1.onrender.com/api/merchandises/"
+		const  url = "https://altclan-brands-api-1-1.onrender.com/api/merchandises/"
 		const res =   await fetch(url, {
 			method: "GET",
 			headers: {

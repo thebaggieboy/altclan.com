@@ -70,7 +70,7 @@ export default function Login(req, res) {
  }, [brand_user, brand])
 
 
-    const { isIdle, isPending, error, mutateAsync: loginFn } = useBrandLogin("https://altclan-brands-api-1-1.onrender.com/auth/jwt/create", loginSuccess, USER_TYPES.brand)
+    const { isIdle, isPending, error, mutateAsync: loginFn } = useBrandLogin("http://127.0.0.1:8000/auth/jwt/create", loginSuccess, USER_TYPES.brand)
 
     const [formData, setFormData] = useState({
         email: "",

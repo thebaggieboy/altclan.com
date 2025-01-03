@@ -24,7 +24,7 @@ export default function Brands() {
   };
 
  async function fetchBrands() {
-  const res =  await fetch(`https://altclan-brands-api-1-1-1.onrender.com/api/users/`, {
+  const res =  await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/`, {
     method: "GET",
     headers: {
 
