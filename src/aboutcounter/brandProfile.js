@@ -32,7 +32,7 @@ useEffect(() => {
 }, [brand_user])
 
   const { data, loading, error, isLoading } = useMerch('https://altclan-brands-api-1-1.onrender.com/api/merchandises/')
-  const { dataOrder, loadingOrder, errorOrder, isLoadingOrder } = useOrder('https://altclan-api-v1.onrender.com/api/orders/')
+  const { dataOrder, loadingOrder, errorOrder, isLoadingOrder } = useOrder('https://altclan-api.onrender.com/api/orders/')
   const results = data?.filter((product) => product?.brand_name?.toLowerCase().includes(searchQuery?.toLowerCase()) );
   const orderResults = dataOrder?.filter((order) => order?.brand_name.toLowerCase().includes(orderQuery?.toLowerCase()) );
   

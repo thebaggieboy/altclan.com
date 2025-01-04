@@ -26,7 +26,7 @@ export default function BrandLogo() {
 
   const brandUserData = brand_user;
 
-  const { isPending, error, mutateAsync: updateFn, data } = useUpdateProfileData("https://altclan-brands-api-1-1.onrender.com/api/users/", brand_user[0]?.id, setUser)
+  const { isPending, error, mutateAsync: updateFn, data } = useUpdateProfileData("https://altclan-brands-api-1-1.onrender.com/api/users/", brand_user?.[0]?.id, setUser)
 
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
@@ -59,7 +59,7 @@ export default function BrandLogo() {
 
     console.log("data: ", data.url)
 
-    await updateFn({ email:brand_user[0]?.email, brand_logo: data.url })
+    await updateFn({ email:brand_user[0]?.email, brand_logo: data?.url })
 
     router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}`)
   };

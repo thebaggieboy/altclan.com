@@ -109,7 +109,7 @@ export default function SignUp() {
 				throw { password: "Passwords do not match" }
 			}
 			setSpinner(true)
-			const url = "http://127.0.0.1:8000/auth/users/"
+			const url = "https://altclan-brands-api-1-1.onrender.com/auth/users/"
 			const res = await fetch(url, {
                 method: "POST",
 			 

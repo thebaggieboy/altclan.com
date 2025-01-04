@@ -175,7 +175,7 @@ export default function HeaderNav() {
 			const arrayToken = token.split('.');
 			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
 			console.log("Token Payload ID: ", tokenPayload?.user_id);
-			const url = `https://altclan-api-v1.onrender.com/api/users/${tokenPayload?.user_id}`
+			const url = `https://altclan-api.onrender.com/api/users/${tokenPayload?.user_id}`
 			if(user[0].hasOwnProperty("brand_name")){
 				console.log("User is a brand")
 			}

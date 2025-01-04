@@ -64,7 +64,7 @@ const ECommerce = ({id, brand}) => {
      // Get all merchandises related to brand A
     // Add up all the amount of merchandises purchased by users relating to a particular brand ID
     // use the reduce method to do this
-    const revenueUrl = await fetch(`https://altclan-brands-api.onrender.com/api/brand_dashboard/${user?.id}`)
+    const revenueUrl = await fetch(`https://altclan-brands-api-1.1.onrender.com/api/brand_dashboard/${user?.id}`)
 		const data = await revenueUrl.json()
     const revenueResult = data?.filter((product) => product.user_email.toLowerCase().includes(user?.email.toLowerCase()) );
 		setQuery(revenueResult)

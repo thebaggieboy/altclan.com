@@ -51,7 +51,7 @@ const MERCH_FORM_DATA = {
       "FREE DELIVERY"],
 
   size_types: {
-    none: "",
+    none: ["none"],
     clothing: ["S", "M", "L", "XL", "2XL", "3XL"],
     wrist: [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5],
     ring: [3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5],
@@ -59,7 +59,7 @@ const MERCH_FORM_DATA = {
     neck: [14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5],
     art: ["12x16", "16x20", "20x28", "24x32", "16x16", "24x24", "8x16", "8x16"]
   },
-  colors: ["Black", "White", "Blue", "Red", "Yellow", "Green", "Pink", "Purple"],
+  colors: ["Black", "White", "Blue", "Red", "Yellow", "Green", "Pink", "Purple", "Other"],
 
 }
 
@@ -74,12 +74,12 @@ const [resource, setResource] = useState();
  
 
   async function newMerchSuccess() {
-    await router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}&?update=success`);
+    await router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user?.[0]?.brand_name}&?update=success`);
   }
 
   const [formErr, setFormErr] = useState(error)
   const [formData, setFormData] = useState({
-    brand_name: brand_user[0]?.brand_name,
+    brand_name: brand_user?.[0]?.brand_name,
     merchandise_name: "",
     merchandise_type: "",
     labels: "",
@@ -171,7 +171,7 @@ const [resource, setResource] = useState();
 
     await updateFn(
       {
-        brand_name: brand_user[0]?.brand_name,
+        brand_name: brand_user?.[0]?.brand_name,
         merchandise_name: formData?.merchandise_name,
      
         labels: formData?.labels,
@@ -300,7 +300,7 @@ const [resource, setResource] = useState();
           <label htmlFor="" className={styles.label}>Size Type</label>
           <select className={styles.input} name="size_type" id="" onChange={(e) => {
             setSizeType(e.target.value)
-            setAvailableSizes([])
+            setAvailableSizes([''])
           }}>
             <option value="" selected disabled>Select size type</option>
             {

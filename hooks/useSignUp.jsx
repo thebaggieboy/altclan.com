@@ -14,14 +14,14 @@ const useSignUp = (url, successCallback, userType) => {
     const dispatch = useDispatch()  
 
     const mutation = useMutation({
-        mutationFn: async ({ email, password, first_name, last_name, mobile_number, display_picture}) => {
+        mutationFn: async ({ email, password}) => {
             const res = await fetch(url, {
                 method: "POST",
                 headers: {
 
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email, password, first_name, last_name, mobile_number, display_picture:null}),
+                body: JSON.stringify({ email, password}),
                 credentials: "include"
 
             })
@@ -43,7 +43,7 @@ const useSignUp = (url, successCallback, userType) => {
                 console.log("Signup profile: ", profile)
                 return profile
            
-                return
+                
             }
 
             const error = { ...data }
