@@ -44,7 +44,7 @@ const useLogin = (url, successCallback, userType) => {
           
             if (res.status >= 200 & res.status <= 209) {
                 dispatch(setToken(data?.access))
-                const  url2 = "http://127.0.0.1:8000/api/users/"
+                const  url2 = "https://altclan-brands-api-1-1.onrender.com/api/users/"
                 const res2 =  await fetch(url2, {
                     method: "GET",
                     headers: {
@@ -63,10 +63,7 @@ const useLogin = (url, successCallback, userType) => {
                     
                     dispatch(setUser(filteredUsers))
                     console.log("Current User: ", user)
-                }
-               
-                
-                           
+                }                   
                 return
                     
             }
