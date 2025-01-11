@@ -57,7 +57,7 @@ export default function Login(req, res) {
             router.push(`/brands/register/brand-logo`)
         }
 
-       
+        router.push(`/brands/profile/${brand_user?.[0]?.brand_name}`)
        
     }
 
@@ -100,7 +100,7 @@ export default function Login(req, res) {
         const today = new Date();
         const oneMonthFromToday = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
         document.cookie = `user_type=user; expires=${oneMonthFromToday.toUTCString()} Path=/`
-        router.push(`/brands/profile/${brand_user?.[0]?.brand_name}`)
+       
 		console.log(document.cookie)
     }
 
@@ -110,6 +110,7 @@ export default function Login(req, res) {
         try {
         
             await loginFn(formData)
+           
             loginSuccess()
             await fetch('/api/emails', {method:'POST'})
           
