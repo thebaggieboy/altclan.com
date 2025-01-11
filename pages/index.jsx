@@ -112,8 +112,8 @@ export default function Home() {
       
           {/* {  <Aesthetics2/>} */}
             <Category />
-            <TrendingMerch/>
-          <TrendingBrands/>
+          {/* {  <TrendingMerch/>
+          <TrendingBrands/>} */}
    <section class="overflow-visible my-0  p-10">
              <div className={styles.discountCard}>
                   <div class="text-black items-center text-center flex flex-col">

@@ -107,10 +107,10 @@ export default function Settings() {
     <div class="col-span-2 hidden sm:block">
       <ul>
 
-        <li class="mt-5 cursor-pointer border-l-2 bg-black px-2 py-3 text-center font-semibold text-white transition hover:border-l-blue-700  hover:bg-black ">Accounts</li>
-        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Security</li>
-        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Bank Account</li>
-        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Notifications</li>
+        <li class="mt-5 cursor-pointer border-l-2 bg-black px-2 py-3 text-center font-semibold text-white transition hover:border-l-blue-700  hover:bg-black "> <a href="/">Accounts</a></li>
+        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 text-center font-semibold transition hover:bg-black hover:text-white"> <a href="/security">Security</a> </li>
+        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 text-center font-semibold transition hover:bg-black hover:text-white"><a href="/bank_account">Bank Account</a></li>
+        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 text-center font-semibold transition hover:bg-black hover:text-white">Notifications</li>
 
       </ul>
     </div>
