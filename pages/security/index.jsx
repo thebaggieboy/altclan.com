@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/router'
 import { selectUser } from '../../features/user/userSlice'
 import { useEffect } from 'react'
-import {Link} from 'next/link'
+
 
 
 export default function Settings() {
@@ -18,69 +18,69 @@ export default function Settings() {
   const dispatch = useDispatch()
   const searchParams = useSearchParams();
   const updateMessage = searchParams.get('update')
-	const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
     email:user?.[0]?.email,
-		brand_name: user?.[0]?.brand_name,
-		brand_logo: user?.[0]?.brand_logo,
-		brand_bio:user?.[0]?.brand_bio,
+        brand_name: user?.[0]?.brand_name,
+        brand_logo: user?.[0]?.brand_logo,
+        brand_bio:user?.[0]?.brand_bio,
     brand_type:user?.[0]?.brand_type,
     mobile_number:user?.[0]?.mobile_number
-	})
+    })
 
   useEffect(()=>{
     if (user == null){
         router.push('/brands/login')
     }
   })
-	const inputChangeHandler = (e) => {
-		const { name, value } = e.target
-		setFormData((prevValue) => {
-			return {
-				...prevValue,
-				[name]: value
-			}
-		})
+    const inputChangeHandler = (e) => {
+        const { name, value } = e.target
+        setFormData((prevValue) => {
+            return {
+                ...prevValue,
+                [name]: value
+            }
+        })
 
-	}
-	const brandProfileSuccess =    <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
-	<svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-	  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-	</svg>
-	<span class="sr-only">Info</span>
-	<div>
-	You have updated your brand profile successfully
-	</div>
+    }
+    const brandProfileSuccess =    <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
+    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+    </svg>
+    <span class="sr-only">Info</span>
+    <div>
+    You have updated your brand profile successfully
+    </div>
   </div>
 
-	async function updateBrandUserProfile(){
-		const res = await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${user[0]?.id}/`, {
-			method: "PUT",
-			headers: {
+    async function updateBrandUserProfile(){
+        const res = await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${user[0]?.id}/`, {
+            method: "PUT",
+            headers: {
 
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({email:formData?.email, brand_name:formData.brand_name, brand_bio:formData.brand_bio, brand_type:formData.brand_type}),
-			
-		})
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({email:formData?.email, brand_name:formData.brand_name, brand_bio:formData.brand_bio, brand_type:formData.brand_type}),
+            
+        })
 
-		const data = await res.json()
+        const data = await res.json()
 
-		if (res.status >= 200 & res.status <= 209) {
-			console.log("User Profile UPDATED")
+        if (res.status >= 200 & res.status <= 209) {
+            console.log("User Profile UPDATED")
      router.push(`/setting?update=success`);
 
-		}
-		const error = { ...data }
-		throw error
+        }
+        const error = { ...data }
+        throw error
 
-	
-	}
+    
+    }
 
 
   async function onSubmit(){
      console.log("Submit Clicked")
   }
-	console.log("formData: ", formData)
+    console.log("formData: ", formData)
   return (
     <> 
       {updateMessage == 'success' ? brandProfileSuccess : ""}
