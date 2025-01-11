@@ -35,13 +35,11 @@ export default function TrendingBrands() {
 		})
 	
 		const data =  await res?.json()
-	
-		if(trendingBrands == null){
-			setTrendingBrands(data)
-		}
+		setTrendingBrands(data)
+		
 		
 	}
-	//const { data, isLoading, error } = useMerch("https://altclan-brands-api-1-1.onrender.com/api/merchandises/")
+	
 	console.log("Trending brands: ", trendingBrands)
 
 	

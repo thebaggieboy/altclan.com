@@ -5,10 +5,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/router'
 import { selectUser } from '../../features/user/userSlice'
+import { useEffect } from 'react'
 
 
 
 export default function Settings() {
+
+ 
 
   const user = useSelector(selectUser);
   const router = useRouter()
@@ -16,15 +19,19 @@ export default function Settings() {
   const searchParams = useSearchParams();
   const updateMessage = searchParams.get('update')
 	const [formData, setFormData] = useState({
-    email:user[0]?.email,
-		brand_name: user[0]?.brand_name,
-		brand_logo: user[0]?.brand_logo,
-		brand_bio:user[0]?.brand_bio,
-    brand_type:user[0]?.brand_type,
-    mobile_number:user[0]?.mobile_number
+    email:user?.[0]?.email,
+		brand_name: user?.[0]?.brand_name,
+		brand_logo: user?.[0]?.brand_logo,
+		brand_bio:user?.[0]?.brand_bio,
+    brand_type:user?.[0]?.brand_type,
+    mobile_number:user?.[0]?.mobile_number
 	})
 
-
+  useEffect(()=>{
+    if (user == null){
+        router.push('/brands/login')
+    }
+  })
 	const inputChangeHandler = (e) => {
 		const { name, value } = e.target
 		setFormData((prevValue) => {
@@ -102,7 +109,7 @@ export default function Settings() {
 
         <li class="mt-5 cursor-pointer border-l-2 bg-black px-2 py-3 text-center font-semibold text-white transition hover:border-l-blue-700  hover:bg-black ">Accounts</li>
         <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Security</li>
-        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Billing</li>
+        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Bank Account</li>
         <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Notifications</li>
 
       </ul>
@@ -165,7 +172,7 @@ export default function Settings() {
                           name="brand_name"
                           id="brand_name"
                           placeholder=""
-                          defaultValue={formData?.brand_name}
+                          defaultValue={user?.[0]?.brand_name}
                           onChange={inputChangeHandler}
                         />
                       </div>
@@ -184,7 +191,7 @@ export default function Settings() {
                         name="phoneNumber"
                         id="phoneNumber"
                         placeholder="+990 3343 7865"
-                        defaultValue={user[0]?.mobile_number}
+                        defaultValue={user?.[0]?.mobile_number}
                         onChange={inputChangeHandler}
                       />
                     </div>
@@ -294,7 +301,7 @@ export default function Settings() {
                         rows={6}
                         placeholder="Write your bio here"
                         onChange={inputChangeHandler}
-                        defaultValue={formData?.brand_bio}
+                        defaultValue={user?.[0]?.brand_bio}
                       ></textarea>
                     </div>
                   </div>
@@ -331,7 +338,7 @@ export default function Settings() {
                   <div className="mb-4 flex items-center gap-3">
                     <div className="h-14 w-14 rounded-full">
                       <Image
-                        src={user[0]?.brand_logo}
+                        src={user?.[0]?.brand_logo}
                         width={55}
                         height={55}
                         alt="User"
@@ -341,14 +348,7 @@ export default function Settings() {
                       <span className="mb-1.5 text-black dark:text-white">
                         Edit your photo
                       </span>
-                      <span className="flex gap-2.5">
-                        <button className="text-sm hover:text-primary">
-                          Delete
-                        </button>
-                        <button className="text-sm hover:text-primary">
-                          Update
-                        </button>
-                      </span>
+                     
                     </div>
                   </div>
 
@@ -391,11 +391,10 @@ export default function Settings() {
                         </svg>
                       </span>
                       <p>
-                        <span className="text-primary">Click to upload</span> or
-                        drag and drop
+                        <span className="text-primary">Click to upload</span> 
                       </p>
-                      <p className="mt-1.5">SVG, PNG, JPG or GIF</p>
-                      <p>(max, 800 X 800px)</p>
+                      <p className="mt-1.5">SVG, PNG, JPG</p>
+                      
                     </div>
                   </div>
 
@@ -407,11 +406,11 @@ export default function Settings() {
                       Cancel
                     </button>
                     <button
-                      className="flex justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:bg-opacity-95"
+                      className="flex justify-center rounded bg-black py-2 px-6 font-medium text-white hover:bg-opacity-95"
                       
                       onClick={updateBrandUserProfile}
                     >
-                      Save
+                      Upload
                     </button>
                   </div>
               

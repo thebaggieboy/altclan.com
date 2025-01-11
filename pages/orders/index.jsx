@@ -43,11 +43,11 @@ export default function Orders() {
   }, [user])
   
   const [formData, setFormData] = useState({
-    email: user ? user[0]?.email : '',
-    first_name: user ? user[0]?.first_name : '',
-    last_name: user ? user[0]?.last_name : '',  
-    mobile_number: user ? user[0]?.mobile_number : '',
-    display_picture: user ? user[0]?.display_picture : '',
+    email: user ? user?.[0]?.email : '',
+    first_name: user ? user?.[0]?.first_name : '',
+    last_name: user ? user?.[0]?.last_name : '',  
+    mobile_number: user ? user?.[0]?.mobile_number : '',
+    display_picture: user ? user?.[0]?.display_picture : '',
   })
 
   useEffect(() => {
@@ -93,10 +93,10 @@ export default function Orders() {
               },
               body: JSON.stringify({
                   email: formData?.email,
-                  first_name: formData.first_name,
-                  last_name: formData.last_name,
-                  mobile_number: formData.mobile_number,
-                  display_picture: formData.display_picture,
+                  first_name: formData?.first_name,
+                  last_name: formData?.last_name,
+                  mobile_number: formData?.mobile_number,
+                  display_picture: formData?.display_picture,
               }),
           })
 
@@ -104,7 +104,7 @@ export default function Orders() {
 
           if (res.status >= 200 && res.status <= 209) {
               console.log("User Profile UPDATED")
-              router.push(`/profile/${user[0]?.id}?update=success`)
+              router.push(`/profile/${user?.[0]?.id}?update=success`)
           } else {
               throw new Error(data)
           }
@@ -147,7 +147,7 @@ export default function Orders() {
     <div class="col-span-2 hidden sm:block">
       <ul>
 
-      <Link href={`/profile/${user[0]?.id}`}><li class="mt-2 text-xs cursor-pointer border-l-2  px-2 py-3 text-center font-semibold  transition hover:border-l-blue-700  hover:bg-black hover:text-white ">Accounts</li></Link>
+      <Link href={`/profile/${user?.[0]?.id}`}><li class="mt-2 text-xs cursor-pointer border-l-2  px-2 py-3 text-center font-semibold  transition hover:border-l-blue-700  hover:bg-black hover:text-white ">Accounts</li></Link>
         <Link href="/orders"><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent bg-black text-white px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Orders</li></Link>
    <Link href="/wishlist">     <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Wishlist</li></Link>
         <Link href='/payment-method'><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Payment Methods</li></Link>

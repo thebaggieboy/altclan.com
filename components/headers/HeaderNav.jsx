@@ -176,7 +176,7 @@ export default function HeaderNav() {
 			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
 			console.log("Token Payload ID: ", tokenPayload?.user_id);
 			const url = `https://altclan-api.onrender.com/api/users/${tokenPayload?.user_id}`
-			if(user[0].hasOwnProperty("brand_name")){
+			if(user?.[0].hasOwnProperty("brand_name")){
 				console.log("User is a brand")
 			}
 			console.log("isbrand", isBrand)
@@ -564,7 +564,7 @@ export default function HeaderNav() {
 										<>
 											<Link
 												className="text-sm font-bold text-gray-700 hover:text-gray-800"
-												href={`${user[0]?.id !== null && user[0].hasOwnProperty("brand_name") ? `/brands/profile/${user[0]?.id}?brand=${user[0]?.brand_name}`: "/profile/" + user[0]?.id}`}
+												href={`${user?.[0]?.id !== null && user?.[0].hasOwnProperty("brand_name") ? `/brands/profile/${user?.[0]?.brand_name}`: "/profile/" + user?.[0]?.id}`}
 											>
 												Profile
 											</Link>
@@ -651,7 +651,7 @@ export default function HeaderNav() {
 												<Menu.Item>
 													{({ active }) => (
 														<Link
-															href={`${user[0]?.id !== null && user[0].hasOwnProperty("brand_name")  ? `/brands/profile/${user[0]?.id}?brand=${user[0]?.brand_name}`: "/profile/" + user[0]?.id}`}
+															href={`${user?.[0]?.id !== null && user?.[0].hasOwnProperty("brand_name")  ? `/brands/profile/${user?.[0]?.brand_name}`: "/profile/" + user?.[0]?.id}`}
 															className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
 														>
 															Profile

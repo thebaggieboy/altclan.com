@@ -51,7 +51,7 @@ export default function Settings() {
   </div>
 
 	async function updateUserProfile(){
-		const res = await fetch(`https://altclan-api-v1.onrender.com/api/users/${user[0]?.id}/`, {
+		const res = await fetch(`https://altclan-api.onrender.com/api/users/${user[0]?.id}/`, {
 			method: "PUT",
 			headers: {
 

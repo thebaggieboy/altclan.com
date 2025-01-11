@@ -13,7 +13,7 @@ import { useSearchParams } from 'next/navigation';
 
 export async function getServerSideProps(context) {
   const id = context.params.id
-  const res = await fetch(`https://altclan-brands-api-1-1-1.onrender.com/api/users/${id}`)
+  const res = await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${id}`)
   //const res = await fetch(`http://127.0.0.1:8000/api/brand_profile/${id}`);
   const data = await res.json()
   console.log(data)
@@ -29,6 +29,7 @@ export async function getServerSideProps(context) {
 
 
 export default function BrandProfile({id, brand}) {
+  const router = useRouter()
   const user = useSelector(selectUser)
   const brand_user = useSelector(selectBrandUser)
   let current_follower = []
@@ -52,7 +53,7 @@ export default function BrandProfile({id, brand}) {
   }
 
   const followBrand = async()=>{
-    const url = `https://altclan-brands-api-1-1-1.onrender.com/api/${user[0]?.id}`
+    const url = `https://altclan-brands-api-1-1.onrender.com/api/${user[0]?.id}`
     console.log("url: ", url)
     if (!brand?.followers.includes(user[0]?.email)) {
       current_follower = brand.followers.push(user[0]?.email);
@@ -60,7 +61,7 @@ export default function BrandProfile({id, brand}) {
       console.log(`${brand?.brand_name} followers: `, current_follower)
       console.log(`${brand?.brand_name} followers: `, brand?.followers)
       setFollowed(true)
-      const res = await fetch(`https://altclan-brands-api-1-1-1.onrender.com/api/users/${brand?.id}/`, {
+      const res = await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${brand?.id}/`, {
         method: "PUT",
         headers: {
   
@@ -90,7 +91,7 @@ export default function BrandProfile({id, brand}) {
     let newFollowers = brand?.followers?.filter(email => email !== user[0]?.email);
     console.log("newFollowers: ", newFollowers )
     // Update the followers on the server
-    const res = await fetch(`https://altclan-brands-api-1-1-1.onrender.com/api/users/${brand?.id}/`, {
+    const res = await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${brand?.id}/`, {
       method: 'PUT',
       headers: {
           'Content-Type': 'application/json',
@@ -118,7 +119,7 @@ throw error
     <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
     </svg>
-    <span>Go back</span>
+    
 </button>
    </div>
         {updateMessage == 'success' ? brandProfileSuccess : ""}

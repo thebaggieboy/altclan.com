@@ -57,13 +57,8 @@ export default function Login(req, res) {
             router.push(`/brands/register/brand-logo`)
         }
 
-        if(brand_user[0]?.brand_name !== '' && brand_user[0]?.brand_bio !== "" &&  brand_user[0]?.brand_type !== "" && brand_user[0]?.mobile_number !== "" && brand_user[0]?.brand_logo !== null){
-            router.push(`/brands/profile/${brand_user?.[0]?.id}?brand=${brand_user?.[0]?.brand_name}`)
-        }
        
        
-    }else{
-        router.push(`/brands/login`)
     }
 
     
@@ -105,7 +100,7 @@ export default function Login(req, res) {
         const today = new Date();
         const oneMonthFromToday = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
         document.cookie = `user_type=user; expires=${oneMonthFromToday.toUTCString()} Path=/`
-    
+        router.push(`/brands/profile/${brand_user?.[0]?.brand_name}`)
 		console.log(document.cookie)
     }
 

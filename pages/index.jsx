@@ -34,9 +34,7 @@ import Aesthetics2 from "../components/Aesthetics2";
 import { OurGrowth } from "../components/OurGrowth";
  
 
-const brands = [1, 2, 3, 4]
-const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
+ 
 const carouselBreakpoints = {
   640: {
     slidesPerView: 3,
@@ -54,7 +52,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 800, []);
+    }, 500, []);
 
   }, []);
   return (

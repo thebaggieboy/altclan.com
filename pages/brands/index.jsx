@@ -34,7 +34,7 @@ export default function Brands() {
     credentials: "include"
 
   })
-  const data =  await res.json()
+  const data =  await res?.json()
   setBrandResult(data)
   console.log("Brands: ", brandResult)
   setLoading(false)
@@ -66,7 +66,7 @@ fetchBrands()
 
        </Head> 
 
-      <div className="mt-5 p-5 text-center">
+      <div className="mt-3 p-5 text-center">
       <br />
 
       <div
@@ -117,7 +117,7 @@ fetchBrands()
     <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
     </svg>
-    <span>Go back</span>
+    
 </button>
    </div>
        <h1 className={styles.brands}>Brands</h1> <br/>
@@ -128,7 +128,7 @@ fetchBrands()
           
           {brandResult?.map((brand) => (
             <Link key={brand.id} href={`/brands/${brand.id}?brand=${brand.brand_name}`} className="group">
-              <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
+              <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-4 xl:aspect-h-4">
                 <img
                   src={brand.brand_logo}
                   alt={brand.imageAlt}

@@ -33,10 +33,8 @@ export default function TrendingMerch() {
 		})
 	
 		const data =  await res?.json()
-	
-		if(trendingMerch == null){
-			setTrendingMerch(data)
-		}
+		setTrendingMerch(data)
+	 
 		
 	}
 	//const { data, isLoading, error } = useMerch("https://altclan-brands-api-1-1-1.onrender.com/api/merchandises/")
