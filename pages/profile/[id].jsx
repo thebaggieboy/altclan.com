@@ -21,8 +21,8 @@ export default function Settings() {
   }
 
 	const [formData, setFormData] = useState({
-    email:user[0].email,
-		first_name: user[0].first_name,
+    email:user[0]?.email,
+		first_name: user[0]?.first_name,
 		last_name: user[0]?.last_name,	  
 		mobile_number:user[0]?.mobile_number,
 		display_picture:user[0]?.display_picture,
@@ -57,14 +57,14 @@ export default function Settings() {
 
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({email:formData?.email, first_name:formData.first_name, last_name:formData.last_name, mobile_number:formData.mobile_number, display_picture:formData.display_picture}),
+			body: JSON.stringify({email:formData?.email, first_name:formData?.first_name, last_name:formData?.last_name, mobile_number:formData.mobile_number, display_picture:formData.display_picture}),
 			
 		})
 
 		const data = await res.json()
 
 		if (res.status >= 200 & res.status <= 209) {
-			console.log("User Profile UPDATED")
+		 console.log("User Profile UPDATED")
      router.push(`/profile/${user[0]?.id}?update=success`);
 
 		}
@@ -146,7 +146,7 @@ export default function Settings() {
                     <div className="w-full sm:w-1/2">
                       <label
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
-                        htmlFor="brand_name"
+                        htmlFor="first_name"
                       >
                         First Name
                       </label>
@@ -157,8 +157,8 @@ export default function Settings() {
                         <input
                           className="w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                           type="text"
-                          name="brand_name"
-                          id="brand_name"
+                          name="first_name"
+                          id="first_name"
                           placeholder=""
                           defaultValue={formData?.first_name}
                           onChange={inputChangeHandler}
@@ -169,16 +169,16 @@ export default function Settings() {
                     <div className="w-full sm:w-1/2">
                       <label
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
-                        htmlFor="phoneNumber"
+                        htmlFor="last_name"
                       >
                        Last Name
                       </label>
                       <input
                         className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                         type="text"
-                        name="phoneNumber"
-                        id="phoneNumber"
-                        placeholder="+990 3343 7865"
+                        name="last_name"
+                        id="last_name"
+                        placeholder=""
                         defaultValue={formData?.last_name}
                         onChange={inputChangeHandler}
                       />

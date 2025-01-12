@@ -226,7 +226,7 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
     </svg>
     <span>Go back</span>
 </button>
-			<div style={{letterSpacing:3, lineHeight:'100%'}}>
+			<div style={{letterSpacing:1, lineHeight:'100%'}}>
 				{/* Mobile filter dialog */}
 				<Transition.Root show={mobileFiltersOpen} as={Fragment}>
 					<Dialog

@@ -142,8 +142,9 @@ export default function Orders() {
             </tr>
         </thead>
         <tbody>
+        {orders?.map(order=>(
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            {orders?.map(order=>(
+           
                 <>
                 <td class="px-6 py-4 font-semibold text-xs text-gray-900 dark:text-white">
                 {order?.tracking_number}        
@@ -159,9 +160,9 @@ export default function Orders() {
                 {order?.delivered === false ? <p className="text-yellow-800 text-xs">Pending</p>  : <p className="text-green-800 text-xs">Completed</p>}        
             </td> 
              </>
-            ))}     
+            
             </tr>
-           
+        ))}   
         
         </tbody>
     </table>
