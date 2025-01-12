@@ -38,7 +38,8 @@ export default function Checkout({ merchs }) {
   const user = useSelector(selectUser);
   const searchParams = useSearchParams();
 	const search = searchParams.get('search')
-  const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api-v1.onrender.com/api/payments/', checkoutSuccess, USER_TYPES.user)
+
+  const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api.onrender.com/api/payments/', checkoutSuccess, USER_TYPES.user)
 
   const dispatch = useDispatch()
   const phone = "+2349093329384"
@@ -97,7 +98,7 @@ export default function Checkout({ merchs }) {
   const { isPending: useOrderPending, error: useOrderError, mutateAsync: orderFn, data: useOrderData } = useOrder('https://altclan-api-v1.onrender.com/api/order/', orderSuccess, USER_TYPES.user)
 
   const createOrder = async()=>{
-    const orderUrl = "https://altclan-api-v1.onrender.com/api/orders/"
+    const orderUrl = "https://altclan-api.onrender.com/api/orders/"
     console.log("Creating a new order for items in cart.")
     const res = await fetch(orderUrl, {
       method: "POST",
@@ -117,7 +118,7 @@ export default function Checkout({ merchs }) {
   
   const getOrder = async()=>{
     console.log("Getting orders from api")
-    const orderUrl = await fetch("https://altclan-api-v1.onrender.com/api/orders/")
+    const orderUrl = await fetch("https://altclan-api.onrender.com/api/orders/")
 
     
     const data = await orderUrl.json()
@@ -345,7 +346,7 @@ export default function Checkout({ merchs }) {
                 </div>
                 <label htmlFor="first-name" className="mt-4 mb-2 block text-sm font-medium">First Name</label>
                 <div className="relative">
-                  <input type="text" value={user[0]?.first_name == '' || user[0]?.first_name ==  null ? '' : user[0]?.first_name } onChange={(e) => setfirstName(e.target.value)} id="card-holder" name="card-holder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Your first name here" />
+                  <input type="text"  onChange={(e) => setfirstName(e.target.value)} id="first_name" name="first_name" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Your first name here" />
                   <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
@@ -355,7 +356,7 @@ export default function Checkout({ merchs }) {
 
                 <label htmlFor="last-name" className="mt-4 mb-2 block text-sm font-medium">Last Name</label>
                 <div className="relative">
-                  <input type="text" value={user[0]?.last_name == '' || user[0]?.last_name ==  null ? '' : user[0]?.last_name } onChange={(e) => setlastName(e.target.value)} id="card-holder" name="card-holder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Your last name here" />
+                  <input type="text"  onChange={(e) => setlastName(e.target.value)} id="card-holder" name="card-holder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Your last name here" />
                   <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
@@ -365,39 +366,23 @@ export default function Checkout({ merchs }) {
             
                 <label htmlFor="address" className="mt-4 mb-2 block text-sm font-semibold">Billing Address</label>
                 <div className="relative">
-                  <input type="text" value={user[0]?.billing_address == '' || user[0]?.billing_address ==  null ? '' : user[0]?.billing_address } onChange={(e) => setfirstName(e.target.value)} id="card-holder" name="card-holder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="1234 AltRd Example St, 27382" />
-                  <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
-                    </svg>
-                  </div>
+                  <input type="text"  onChange={(e) => setfirstName(e.target.value)} id="card-holder" name="card-holder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="1234 AltRd Example St, 27382" />
+               
                 </div>
                 <label htmlFor="state" className="mt-4 mb-2 block text-sm font-medium">State</label>
                 <div className="relative">
-                  <input type="text" value={user[0]?.state == '' || user[0]?.state ==  null ? '' : user[0]?.state } onChange={(e) => setfirstName(e.target.value)} id="card-holder" name="card-holder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Lagos" />
-                  <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
-                    </svg>
-                  </div>
+                  <input type="text"  onChange={(e) => setfirstName(e.target.value)} id="card-holder" name="card-holder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Lagos" />
+               
                 </div>
                 <label htmlFor="city" className="mt-4 mb-2 block text-sm font-medium">City</label>
                 <div className="relative">
-                  <input type="text" value={user[0]?.city == '' || user[0]?.city ==  null ? '' : user[0]?.city } onChange={(e) => setfirstName(e.target.value)} id="card-holder" name="card-holder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Victoria Island" />
-                  <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
-                    </svg>
-                  </div>
+                  <input type="text"  onChange={(e) => setfirstName(e.target.value)} id="card-holder" name="card-holder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Victoria Island" />
+               
                 </div>
                 <label htmlFor="first-name" className="mt-4 mb-2 block text-sm font-medium">Zip</label>
                 <div className="relative">
-                  <input type="text" value={user[0]?.zip == '' || user[0]?.zip ==  null ? '' : user[0]?.zip } onChange={(e) => setfirstName(e.target.value)} id="card-holder" name="card-holder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="444222" />
-                  <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
-                    </svg>
-                  </div>
+                  <input type="text"  onChange={(e) => setfirstName(e.target.value)} id="card-holder" name="card-holder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="444222" />
+               
                 </div>
                 
                 

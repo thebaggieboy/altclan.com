@@ -48,7 +48,7 @@ const ECommerce = ({merch}) => {
 
 
     useEffect(() => {
-		if (user === null) {
+		if (user == null) {
 			router.push("/brands/login");
 		}
   

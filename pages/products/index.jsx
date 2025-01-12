@@ -166,7 +166,7 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 
 	if (isLoading) {
 		return (
-			<div className="mt-5 p-5 text-center" style={{letterSpacing:2, lineHeight:'100%'}}>
+			<div className="mt-5 p-5 text-center" style={{letterSpacing:1, lineHeight:'100%'}}>
 				
 				<br />
 
