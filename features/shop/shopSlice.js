@@ -14,8 +14,8 @@ const shopSlice = createSlice({
     initialState,
     reducers: {
         addItem: (state, action) => {
-            const { itemId, qty, size, color } = action.payload
-            const cartId = generateUniqueId(itemId, color, size)
+            const { itemId, qty, size, color, productName, brandName } = action.payload
+            const cartId = generateUniqueId(itemId, color, size, productName, brandName)
             //gets all occurences of that item in the cart
             const occurences = state.cart.filter((cartItem) => cartItem.itemId === itemId)
             if (occurences.length !== 0) {

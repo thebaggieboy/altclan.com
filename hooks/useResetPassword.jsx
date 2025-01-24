@@ -2,8 +2,8 @@ import { useMutation } from '@tanstack/react-query'
 
 
 const useResetPassword = (isBrand) => {
-    const userUrl = "https://altclan-api-v1.onrender.com/dj-rest-auth/password/reset/"
-    const brandUrl = "https://altclan-brands-api.onrender.com/dj-rest-auth/password/reset/"
+    const userUrl = "https://altclan-api.onrender.com/dj-rest-auth/password/reset/"
+    const brandUrl = "https://altclan-brands-api-1-1.onrender.com/dj-rest-auth/password/reset/"
 
     const mutation = useMutation({
         mutationFn: async (loginData) => {

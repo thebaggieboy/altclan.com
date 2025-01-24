@@ -160,7 +160,7 @@ export default function Settings() {
                           name="first_name"
                           id="first_name"
                           placeholder=""
-                          defaultValue={formData?.first_name}
+                          defaultValue={user?.[0]?.first_name}
                           onChange={inputChangeHandler}
                         />
                       </div>
@@ -179,7 +179,7 @@ export default function Settings() {
                         name="last_name"
                         id="last_name"
                         placeholder=""
-                        defaultValue={formData?.last_name}
+                        defaultValue={user?.[0]?.last_name}
                         onChange={inputChangeHandler}
                       />
                     </div>
@@ -225,7 +225,7 @@ export default function Settings() {
                         id="emailAddress"
                         onChange={inputChangeHandler}
                         disabled
-                        defaultValue={formData?.email}
+                        defaultValue={user?.[0]?.email}
                       />
                     </div>
                   </div>

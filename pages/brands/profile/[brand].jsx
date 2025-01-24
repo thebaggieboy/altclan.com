@@ -53,11 +53,11 @@ const client = useQueryClient()
   const isBrand = useSelector(selectUserType) === USER_TYPES.brand
   //const profileData =  client.getQueryData(["profile", brand_user?.id, user?.user_type])
 
-if (brand_user == null) {
-  router.push("/brands/login");
-} 
+
 useEffect(() => {
-  
+  if (brand_user == null) {
+    router.push("/brands/login");
+  } 
   if (searchQuery !== null) {
     setSearchQuery(brand)
   }

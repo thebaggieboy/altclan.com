@@ -43,6 +43,11 @@ export default function Login(req, res) {
 
  useEffect(()=>{
     if (brand_user !== null) {
+        console.log(`Brand User: ${brand_user}`);
+        //setBrand(brand_user);
+        console.log("Brand : ", brand_user[0])
+        console.log("Brand Count: ", brand_user.length)
+        console.log("Brand Name: ", brand_user[0]?.brand_name)
 
         if(brand_user[0]?.brand_name == '' && brand_user[0]?.brand_bio == "" && brand_user[0]?.brand_type == "" && brand_user[0]?.mobile_number == ""){
             router.push('/brands/register/brand-bio')
@@ -51,11 +56,9 @@ export default function Login(req, res) {
         if(brand_user[0]?.brand_logo == null){
             router.push(`/brands/register/brand-logo`)
         }
-        if(brand_user[0]?.brand_name !== '' && brand_user[0]?.brand_bio !== "" && brand_user[0]?.brand_type !== "" && brand_user[0]?.mobile_number !== "" && brand_user[0]?.brand_logo !== null){
-            router.push(`/brands/profile/${brand_user?.[0]?.brand_name}`)
        
-        }
-    
+        router.push(`/brands/profile/${brand_user?.[0]?.brand_name}`)
+       
     }
 
     

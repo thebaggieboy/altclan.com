@@ -64,13 +64,7 @@ export default function Checkout({ merchs }) {
   const router = useRouter()
   const amount = grandTotal * 100
   const email = user?.[0]?.email
-
-  async function checkoutSuccess() {
-    //await router.push("/brands/profile/" + brand_user?.id);
-  }
-  async function orderSuccess() {
-    //await router.push("/brands/profile/" + brand_user?.id);
-  }
+  const [cartOrders, setCartOrders] = useState([]);
 
   const randomAlphaNumeric = length => {
     let s = '';
@@ -85,33 +79,40 @@ export default function Checkout({ merchs }) {
 
   const makePayment = () => {
     console.log("Payment button clicked")
+    // get paystack_charge_id
 
     updateFn({
       user_email: email,
-      address: "",
+      address: user?.[0]?.billing_address + "" + user?.[0]?.city + "" + user?.[0]?.state + "" + + user?.[0]?.zip,
       paystack_charge_id: "",
       full_name: name,
       amount: amount / 100,
       status: "C",
     })
   }
-  const { isPending: useOrderPending, error: useOrderError, mutateAsync: orderFn, data: useOrderData } = useOrder('https://altclan-api-v1.onrender.com/api/order/', orderSuccess, USER_TYPES.user)
+  const { isPending: useOrderPending, error: useOrderError, mutateAsync: orderFn, data: useOrderData } = useOrder('https://altclan-api.onrender.com/api/order/', orderSuccess, USER_TYPES.user)
 
   const createOrder = async()=>{
     const orderUrl = "https://altclan-api.onrender.com/api/orders/"
     console.log("Creating a new order for items in cart.")
     const res = await fetch(orderUrl, {
       method: "POST",
-      body: JSON.stringify({user_email:email, name_of_brand:"", amount_per_item:amount/100, tracking_number:ref, number_of_items:cartQuantity, total_amount:amount/100} ),
+      body: JSON.stringify({
+         user_email:email, 
+         tracking_number:ref, 
+         number_of_items:cartQuantity,
+         total_amount:amount/100,
+         items:cartItems} ),
       headers: {
           "Content-Type": "application/json"
       },
   })
     const data = await res.json()
-    console.log("Order posted successfully")
+  
     console.log("orderData: ", data)
 
   if (res.status >= 200 && res.status <= 209) {
+    console.log("Order posted successfully")
       return data          
   }
   }
@@ -139,6 +140,9 @@ export default function Checkout({ merchs }) {
     metadata: {
       name,
       phone,
+      city,
+      state,
+      zip,
       ref,
     },
     publicKey,
@@ -148,7 +152,7 @@ export default function Checkout({ merchs }) {
       createOrder()
       getOrder()
 
-
+      
       dispatch(clearCart())
       router.push('/payment-success?order=success')
     }
