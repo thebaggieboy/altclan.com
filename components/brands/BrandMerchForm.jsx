@@ -74,7 +74,7 @@ const [resource, setResource] = useState();
  
 
   async function newMerchSuccess() {
-    await router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user?.[0]?.brand_name}&?update=success`);
+    await router.push(`/brands/profile/${brand_user?.[0]?.brand_name}&?update=success`);
   }
 
   const [formErr, setFormErr] = useState(error)
@@ -200,7 +200,7 @@ const [resource, setResource] = useState();
   return (
 
     <form className="" enctype="multipart/form-data" onSubmit={updateMerchandise}>
-      <div style={{fontFamily:'Poppins, Sans-serif', color:"black", lineHeight:'100%', letterSpacing:2}} className={styles.loginContainer}>
+      <div style={{fontFamily:'Poppins, Sans-serif', color:"black", lineHeight:'100%', letterSpacing:1}} className={styles.loginContainer}>
 
 
         <div className={styles.columnText}>

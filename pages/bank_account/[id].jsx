@@ -7,12 +7,13 @@ import { useRouter } from 'next/router'
 import { selectUser } from '../../features/user/userSlice'
 import { useEffect } from 'react'
 import {Link} from 'next/link'
+import { split } from 'postcss/lib/list'
 
 
 export default function Settings() {
 
  
-
+  const secretKey = 'sk_test_e163ed7b7618f59d3947b8ff3170437a4439e644'
   const user = useSelector(selectUser);
   const router = useRouter()
   const dispatch = useDispatch()
@@ -51,30 +52,90 @@ export default function Settings() {
 	You have updated your brand profile successfully
 	</div>
   </div>
+const splitPayment = (()=>{
+  console.log("Splitting Payments")
+  const https = require('https')
 
-	async function updateBrandUserProfile(){
-		const res = await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${user[0]?.id}/`, {
-			method: "PUT",
-			headers: {
 
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({email:formData?.email, brand_name:formData.brand_name, brand_bio:formData.brand_bio, brand_type:formData.brand_type}),
-			
-		})
+const params = JSON.stringify({
+  "email": "thebaggieboy@protonmail.com",
+  "amount": 200000,
+  "subaccount": "ACCT_453xt8in0algnev",
+  "bearer": "subaccount"
+})
 
-		const data = await res.json()
+const options = {
+  hostname: 'api.paystack.co',
+  port: 443,
+  path: '/transaction/initialize',
+  method: 'POST',
+  headers: {
+    Authorization: 'Bearer ' + secretKey,
+    'Content-Type': 'application/json'
+  }
+}
 
-		if (res.status >= 200 & res.status <= 209) {
-			console.log("User Profile UPDATED")
-     router.push(`/setting?update=success`);
+const req = https.request(options, res => {
+  let data = ''
 
-		}
-		const error = { ...data }
-		throw error
+  res.on('data', (chunk) => {
+    data += chunk
+  });
 
-	
-	}
+  res.on('end', () => {
+    console.log(JSON.parse(data))
+  })
+}).on('error', error => {
+  console.error(error)
+})
+
+req.write(params)
+req.end()
+})
+const generateVAN = (()=>{
+  console.log("Creating new Sub Account")
+
+  const https = require('https')
+
+  const params = JSON.stringify({
+    "business_name": "Oasis",
+    "bank_code": "058",
+    "account_number": "0501548215",
+    "percentage_charge": 10
+  })
+  
+  const options = {
+    hostname: 'api.paystack.co',
+    port: 443,
+    path: '/subaccount',
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${secretKey}`,
+      'Content-Type': 'application/json'
+    }
+  }
+  
+  const req = https.request(options, res => {
+    let data = ''
+  
+    res.on('data', (chunk) => {
+      data += chunk
+    });
+  
+    res.on('end', () => {
+      console.log(JSON.parse(data))
+    })
+  }).on('error', error => {
+    console.error(error)
+  })
+  
+  req.write(params)
+  req.end()
+  splitPayment()
+
+})  
+
+
 
 
   async function onSubmit(){
@@ -138,7 +199,7 @@ export default function Settings() {
                     style={{backgroundColor: "beige", color:"black"}}
                       className="flex justify-center rounded  py-2  px-6 text-xs "
                      
-                      onClick={updateBrandUserProfile}
+                      onClick={generateVAN}
                     >
                 
                      <p className='bolder'> Tap to generate</p>
@@ -158,12 +219,12 @@ export default function Settings() {
                       </span>
                       <input
                         className="w-full rounded border border-stroke bg-gray py-1 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
-                        type="email"
-                        name="emailAddress"
-                        id="emailAddress"
+                        type="text"
+                        name="bank_name"
+                        id="bank_name"
                         onChange={inputChangeHandler}
                         disabled
-                        defaultValue={formData?.email}
+                        
                       />
                     </div>
                   </div>
@@ -180,12 +241,12 @@ export default function Settings() {
                       </span>
                       <input
                         className="w-full rounded border border-stroke bg-gray py-1 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
-                        type="email"
-                        name="emailAddress"
-                        id="emailAddress"
+                        type="text"
+                        name="account_name"
+                        id="account_name"
                         onChange={inputChangeHandler}
                         disabled
-                        defaultValue={formData?.email}
+                       
                       />
                     </div>
                   </div>
@@ -202,12 +263,12 @@ export default function Settings() {
                       </span>
                       <input
                         className="w-full rounded border border-stroke bg-gray py-1 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
-                        type="email"
-                        name="emailAddress"
-                        id="emailAddress"
+                        type="text"
+                        name="account_number"
+                        id="account_number"
                         onChange={inputChangeHandler}
                         disabled
-                        defaultValue={formData?.email}
+                        
                       />
                     </div>
                   </div>
@@ -251,7 +312,7 @@ export default function Settings() {
                     <button
                       className="flex justify-center rounded bg-black py-2 px-6 font-medium text-white hover:bg-opacity-95"
                       
-                      onClick={updateBrandUserProfile}
+                      onClick={generateVAN}
                     >
                       Add
                     </button>

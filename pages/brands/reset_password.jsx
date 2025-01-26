@@ -30,15 +30,13 @@ export default function ForgotPassword() {
 	const [formErr, setFormErr] = useState()
 
 	if (user !== null) {
-		router.push("/products");
+		router.push("/login");
 	}
 
 
-	const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin()
 
 	const [formData, setFormData] = useState({
 		email: "",
-		password: "",
 	})
 
 	const inputChangeHandler = (e) => {
@@ -54,10 +52,37 @@ export default function ForgotPassword() {
 
 	console.log(error)
 
+
+	async function resetPassword(){
+		const res = await fetch(`https://altclan-brands-api-1-1.onrender.com/auth/users/reset_password/`, {
+			method: "POST",
+			headers: {
+
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({email:formData?.email}),
+			
+		})
+
+		const data = await res.json()
+
+		if (res.status >= 200 & res.status <= 209) {
+		 console.log("User Password UPDATED")
+        router.push(`/accounts/login`);
+
+		}
+		const error = { ...data }
+		throw error
+
+	
+	}
+
+
 	const submit = async (e) => {
 		e.preventDefault();
+		resetPassword()
 		try {
-			await loginFn(formData)
+			
 		} catch (error) {
 			console.log(error)
 			setFormErr(error)

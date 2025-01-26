@@ -140,9 +140,6 @@ export default function Checkout({ merchs }) {
     metadata: {
       name,
       phone,
-      city,
-      state,
-      zip,
       ref,
     },
     publicKey,

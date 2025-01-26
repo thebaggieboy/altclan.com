@@ -46,13 +46,7 @@ const ECommerce = ({merch}) => {
   const { data, isLoading, error} = useData('https://altclan-api.onrender.com/api/orders/')
 
 
-    useEffect(() => {
-		if (user == null) {
-			router.push("/brands/login");
-		}
-  
-
-	}, [user]);
+    
   useEffect(() => {
 
     const productResults = data2?.filter((product) => product.brand_name?.toLowerCase().includes(user[0]?.brand_name.toLowerCase()) );
@@ -62,11 +56,6 @@ const ECommerce = ({merch}) => {
     setProductResult(productResults);
     setOrderResult(orderResults)
     setSalesResult(sales)
-   
-    console.log('products: ', productResult)
-    console.log('orders: ', orderResults)
-    console.log('sales: ', sales)
-
     var total = data?.reduce((accum, product) => accum + product.total_amount, 0)
     console.log('orders total: ', total)
     setTotal(total)
