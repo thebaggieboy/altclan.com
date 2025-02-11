@@ -93,16 +93,14 @@ export default function Checkout({ merchs }) {
   const { isPending: useOrderPending, error: useOrderError, mutateAsync: orderFn, data: useOrderData } = useOrder('https://altclan-api.onrender.com/api/order/', orderSuccess, USER_TYPES.user)
 
   const createOrder = async()=>{
-    const orderUrl = "https://altclan-api.onrender.com/api/orders/"
+    const orderUrl = "https://altclan-api.onrender.com/api/users/"
     console.log("Creating a new order for items in cart.")
     const res = await fetch(orderUrl, {
       method: "POST",
       body: JSON.stringify({
          user_email:email, 
-         tracking_number:ref, 
-         number_of_items:cartQuantity,
-         total_amount:amount/100,
-         items:cartItems} ),
+       
+         orders:cartItems} ),
       headers: {
           "Content-Type": "application/json"
       },
@@ -147,7 +145,7 @@ export default function Checkout({ merchs }) {
     onSuccess: () => {
       makePayment()
       createOrder()
-      getOrder()
+      
 
       
       dispatch(clearCart())

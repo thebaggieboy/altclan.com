@@ -186,7 +186,7 @@ export default function ProductDetail({ _id, merch }) {
 		const url = 'https://altclan-api.onrender.com/api/wishlist/'
 		const res = await fetch(url, {
 		  method: "POST",
-		  body: JSON.stringify({user_email:user?.email, product_name:'',  quantity:'', colors:''}),
+		  body: JSON.stringify({user_email:user?.[0]?.email, product_name:'',  quantity:'', colors:''}),
 		  headers: {
 			  "Content-Type": "application/json"
 		  },
