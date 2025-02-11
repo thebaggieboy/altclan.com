@@ -90,7 +90,7 @@ export default function SignUp() {
 
 	}
 	function signUpSuccess() {
-		console.log("Redirecting to login page")
+		
 		router.push("/accounts/login?user=success")
 	}
 	const submit = async (e) => {
@@ -119,6 +119,7 @@ export default function SignUp() {
 				console.log(data)
 				setSpinner(false)
 				signUpSuccess()
+				await signUpFn(formData)
                 
                 
             }

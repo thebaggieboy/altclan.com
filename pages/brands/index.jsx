@@ -127,7 +127,7 @@ fetchBrands()
         <div className="grid pt-1 grid-cols-2 gap-y-4 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
           
           {brandResult?.map((brand) => (
-            <Link key={brand.id} href={`/brands/${brand.id}?brand=${brand.brand_name}`} className="group">
+            <Link key={brand.id} href={`/brands/${brand.brand_name}`} className="group">
               <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-4 xl:aspect-h-4">
                 <img
                   src={brand.brand_logo}

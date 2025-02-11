@@ -7,40 +7,20 @@ import { selectUser, setUser } from "../../features/user/userSlice";
 
 import Loader from "../../components/Loader";
 import useLogin from "../../hooks/useLogin";
-import useResetPassword from "../../hooks/useResetPassword";
 
-export function LoginError() {
-	return (
-		<div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-			<svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-				<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-			</svg>
-			<span class="sr-only">Info</span>
-			<div class="ml-3 text-sm text-center font-medium">
-				Email or password is incorrect.
-			</div>
 
-		</div>
-	)
-}
 
 export default function ForgotPassword() {
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
 	const router = useRouter();
 	const [formErr, setFormErr] = useState()
-
-	if (user !== null) {
-		router.push("/products");
-	}
-
-
-	const { isIdle, isPending, error, mutateAsync: resetPasswordFn } = useResetPassword()
+	const url = 'https://altclan-api.onrender.com/auth/users/reset_password/'
+	
 
 
 	const [formData, setFormData] = useState({
 		email: "",
-		
 	})
 
 	const inputChangeHandler = (e) => {
@@ -54,17 +34,44 @@ export default function ForgotPassword() {
 
 	}
 
-	console.log(error)
+	console.log('form: ', formData)
+	
+ 
+	async function resetPassword(){
+		
+
+		const res = await fetch(url, {
+			method: "POST",
+			headers: {
+
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ email:formData.email}),
+			credentials: "include"
+
+		})
+		const data = await res?.json()
+		console.log('Data: ', data)
+
+	   if (res.status >= 200 & res.status <= 209) {
+		console.log("User Password UPDATED")
+        router.push(`/accounts/login`); 
+
+		}
+		const error = { ...data }
+		throw error
+
+	
+	}
+
 
 	const submit = async (e) => {
-		// This function is to send a link to the email filled in the form
+		
 		e.preventDefault();
-		try {
-			await resetPasswordFn(formData)
-		} catch (error) {
-			console.log(error)
-			setFormErr(error)
-		}
+		
+		console.log("Reset Password")
+		resetPassword()
+		
 	};
 
 
@@ -96,18 +103,7 @@ export default function ForgotPassword() {
 
 						<div className="">
 							{/* <label for="email" className="block mb-2 text-sm font-medium text-black">Your email</label> */}
-							{error !== null && (
-								<div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-								<svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-									<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-								</svg>
-								<span class="sr-only">Info</span>
-								<div class="ml-3 text-sm text-center font-medium">
-									{error.email}
-								</div>
-					
-							</div>
-							)}
+							
 							<label for="email" className={styles.label}>Email</label>
 							<input
 								type="email"
@@ -123,10 +119,8 @@ export default function ForgotPassword() {
 
 						<div></div>
 
-						<button disabled={isPending} type="submit" className={styles.submit}>
-							{
-								isPending ? <Loader /> : "Send link"
-							}
+						<button type="submit" className={styles.submit}>
+							Send Link
 						</button>
 
 						<p className={styles.alternative}>

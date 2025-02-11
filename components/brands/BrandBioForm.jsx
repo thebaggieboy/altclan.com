@@ -16,10 +16,10 @@ const  BrandBioForm = (props) => {
 
   const brandUserData = useSelector(selectUser);
   const router = useRouter()
-  const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api-1-1.onrender.com/api/users/", brandUserData[0]?.id, setUser)
+  const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api-1-1.onrender.com/api/users/", brandUserData?.[0]?.id, setUser)
 
   const [formData, setFormData] = useState({
-    email: brandUserData[0].email,
+    email: brandUserData?.[0]?.email,
     brand_name: "",
     brand_bio: "",
     brand_type: "",

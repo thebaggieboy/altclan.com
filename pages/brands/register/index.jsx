@@ -98,7 +98,6 @@ export default function SignUp() {
 	loginEmail()
 	
 	function signUpSuccess() {
-		console.log("Redirecting to login page")
 		router.push("/brands/login?user=success")
 	}
 	const submit = async (e) => {
