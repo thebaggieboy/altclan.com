@@ -22,11 +22,11 @@ export default function Address() {
 
 	const [formData, setFormData] = useState({
         email:user[0].email,
-		billing_address: user[0].billing_address,
+		billing_address: user[0]?.billing_address,
 		state: user[0]?.state,	  
 		city:user[0]?.city,
-		state:user[0]?.state,
-        zip:user[0]?.zip,
+		state:user?.[0]?.state,
+    zip:user?.[0]?.zip,
 
 	})
 
@@ -52,7 +52,7 @@ export default function Address() {
   </div>
 
 	async function updateUserAddress(){
-		const res = await fetch(`https://altclan-api-v1.onrender.com/api/users/${user[0]?.id}/`, {
+		const res = await fetch(`https://altclan-api.onrender.com/api/users/${user[0]?.id}/`, {
 			method: "PUT",
 			headers: {
 
@@ -78,6 +78,7 @@ export default function Address() {
 
   async function onSubmit(){
      console.log("Submit Clicked")
+     updateUserAddress()
   }
 	console.log("formData: ", formData)
   return (
@@ -150,7 +151,7 @@ export default function Address() {
                         id="billing_address"
                         onChange={inputChangeHandler}
                         
-                        defaultValue={formData?.billing_address}
+                        defaultValue={user[0]?.billing_address}
                       />
                     </div>
                   </div>
@@ -173,7 +174,7 @@ export default function Address() {
                           name="state"
                           id="state"
                           placeholder=""
-                          defaultValue={formData?.state}
+                          value={formData?.state}
                           onChange={inputChangeHandler}
                         />
                       </div>
@@ -192,7 +193,7 @@ export default function Address() {
                         name="city"
                         id="city"
                         placeholder=""
-                        defaultValue={formData?.city}
+                        value={formData?.city}
                         onChange={inputChangeHandler}
                       />
                     </div>
@@ -210,7 +211,7 @@ export default function Address() {
                         name="zip"
                         id="zip"
                         placeholder="------"
-                        defaultValue={formData?.zip}
+                        value={user[0]?.zip}
                         onChange={inputChangeHandler}
                       />
                     </div>

@@ -564,7 +564,7 @@ export default function HeaderNav() {
 										<>
 											<Link
 												className="text-sm font-bold text-gray-700 hover:text-gray-800"
-												href={`${user[0]?.id !== null && user?.[0].hasOwnProperty("brand_name") ? `/brands/profile/${user[0]?.brand_name}`: "/profile/" + user?.[0]?.id}`}
+												href={`${user[0]?.id !== null && user?.[0].hasOwnProperty("brand_name") ? `/brands/profile/${user[0]?.brand_name}`: "/profile/" + user?.[0]?.email}`}
 											>
 												Profile
 											</Link>
@@ -651,7 +651,7 @@ export default function HeaderNav() {
 												<Menu.Item>
 													{({ active }) => (
 														<Link
-															href={`${user[0]?.id !== null && user[0].hasOwnProperty("brand_name")  ? `/brands/profile/${user[0]?.brand_name}`: "/profile/" + user[0]?.id}`}
+															href={`${user[0]?.id !== null && user[0].hasOwnProperty("brand_name")  ? `/brands/profile/${user[0]?.brand_name}`: "/profile/" + user[0]?.email}`}
 															className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
 														>
 															Profile

@@ -15,10 +15,7 @@ export default function ForgotPassword() {
 	const user = useSelector(selectUser);
 	const router = useRouter();
 	const [formErr, setFormErr] = useState()
-	const url = 'https://altclan-api.onrender.com/auth/users/reset_password/'
-	
-
-
+	 
 	const [formData, setFormData] = useState({
 		email: "",
 	})
@@ -40,7 +37,7 @@ export default function ForgotPassword() {
 	async function resetPassword(){
 		
 
-		const res = await fetch(url, {
+		const res = await fetch('https://altclan-api.onrender.com/auth/users/reset_password/', {
 			method: "POST",
 			headers: {
 
@@ -50,13 +47,23 @@ export default function ForgotPassword() {
 			credentials: "include"
 
 		})
-		const data = await res?.json()
+		const data = res 
 		console.log('Data: ', data)
 
 	   if (res.status >= 200 & res.status <= 209) {
 		console.log("User Password UPDATED")
-        router.push(`/accounts/login`); 
+		const res2 = await fetch('https://altclan-api.onrender.com/auth/users/reset_password_confirm/', {
+			method: "POST",
+			headers: {
 
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ email:formData.email}),
+			credentials: "include"
+
+		})
+		const data2 = res2 
+		console.log('Data2: ', data2)
 		}
 		const error = { ...data }
 		throw error

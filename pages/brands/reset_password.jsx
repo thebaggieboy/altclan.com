@@ -21,6 +21,8 @@ export default function ForgotPassword() {
 
 	const [formData, setFormData] = useState({
 		email: "",
+		password:"",
+		confirm_password:""
 	})
 
 	const inputChangeHandler = (e) => {
