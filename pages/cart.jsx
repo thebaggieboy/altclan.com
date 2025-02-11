@@ -10,7 +10,7 @@ import CartItem from "../components/CartItem";
 import Head  from "next/head"
 export async function getServerSideProps(context) {
 	const res = await fetch(
-		`https://altclan-brands-api-1-1.onrender.com/api/merchandises`
+		`https://altclan-brands-api-1-1.onrender.com/api/merchandises/`
 	);
 	//const res = await fetch(`http://127.0.0.1:8000/api/merchandises/₦{id}`);
 	const data = await res.json();
@@ -25,15 +25,12 @@ export default function Cart({ merchs }) {
 	const [show, setShow] = useState(false);
 
 	const cartItems = useSelector(selectCartItems);
-	console.log("Cart: ", cartItems)
+	
 	const total = useSelector(selectCartTotal);
 	const cartTotal = useSelector(selectCartCount)
 	const shippingFee = 0;
 	const grandTotal = shippingFee + total;
-	console.log("Cart Quantity: ", cartTotal)
-	console.log("Cart Length: ", cartItems.length)
-	console.log("Cart ID: ", cartItems?.id)
-
+	
 	const findMerchByID = ()=> {
 		console.log("Searching through merch")
 	}
@@ -93,10 +90,10 @@ export default function Cart({ merchs }) {
 						<div className="bg-white shadow">
 							<div className="px-4 py-6 sm:px-8 sm:py-10">
 								<div className="flow-root">
-									{cartItems.map((item) => {
-										const data = merchs.find((m) => m.id === item.itemId);
+									{cartItems?.map((item) => {
+										const data = merchs?.find((m) => m?.id === item.itemId);
 										return (
-											<CartItem key={item.id} data={{ ...item, ...data, cartId: item.id }} />
+											<CartItem key={item?.id} data={{ ...item, ...data, cartId: item.id }} />
 										);
 									})}
 								</div>

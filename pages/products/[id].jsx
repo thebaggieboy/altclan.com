@@ -31,7 +31,7 @@ const queryClient = new QueryClient()
 export async function getServerSideProps(context) {
 	const id = context.params.id;
 	const data = await queryClient.fetchQuery({ queryKey: ["product", id], queryFn: () => fetchProductData(id) })
-	console.log(data, id)
+	console.log("MERCH: ", id)
 	 
 	return {
 		props: { merch: data },
@@ -96,6 +96,7 @@ export default function ProductDetail({ _id, merch }) {
 		console.log(added)
 		console.log(successText)
 		const data = {
+			
 			itemId: merch.id,
 			size: selectedSize,
 			color: selectedColor.name,
