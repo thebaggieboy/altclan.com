@@ -53,7 +53,7 @@ export default function BrandProfile({id, brand}) {
   }
 
   const followBrand = async()=>{
-    const url = `https://altclan-brands-api-1-1.onrender.com/api/${user[0]?.id}`
+    const url = `https://altclan-brands-api-1-1.onrender.com/api/${user?.[0]?.id}/`
     console.log("url: ", url)
     if (!brand?.followers.includes(user[0]?.email)) {
       current_follower = brand.followers.push(user[0]?.email);
@@ -125,20 +125,20 @@ throw error
         {updateMessage == 'success' ? brandProfileSuccess : ""}
 
           <div className={styles.left}>
-            <img src={brand.brand_logo} alt="" className={styles.image}/>
+            <img src={brand?.brand_logo} alt="" className={styles.image}/>
           </div>
 
             <div className={styles.right}>
               <h1>
-                {brand.brand_name}
+                {brand?.brand_name}
               </h1>
               <div className={styles.numbers}>
                
-                <p>{brand.brand_type}</p>
+                <p>{brand?.brand_type}</p>
               </div>
               
               <p className={styles.about}>
-                {brand.brand_bio}
+                {brand?.brand_bio}
               </p> 
               <p className='mt-4' style={{fontWeight:'bolder', fontSize:14}}>
                {brand?.followers?.length} Followers
