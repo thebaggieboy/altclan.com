@@ -85,7 +85,7 @@ export default function Settings() {
     <> 
       {updateMessage == 'success' ? brandProfileSuccess : ""}
 
-<div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-2 xl:mx-auto">
+<div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-2 xl:mx-auto" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
   <h1 class="border-b  text-4xl ml-10 font-semibold">Settings</h1>
   <div class="grid grid-cols-8 pt-1 sm:grid-cols-10  m-5">
     

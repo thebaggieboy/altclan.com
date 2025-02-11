@@ -26,7 +26,7 @@ export default function Create() {
 
   const addReview = async()=>{
 
-    const url = 'https://altclan-api-v1.onrender.com/api/reviews/'
+    const url = 'https://altclan-api.onrender.com/api/reviews/'
     const res = await fetch(url, {
       method: "POST",
       body: JSON.stringify({email:email, review:review}),

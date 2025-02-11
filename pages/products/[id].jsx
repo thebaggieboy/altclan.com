@@ -153,10 +153,10 @@ export default function ProductDetail({ _id, merch }) {
 
 	const addReview = async(e)=>{
 		e.preventDefault()
-		const url = 'https://altclan-api.onrender.com/api/reviews/'
+		const url = `https://altclan-api.onrender.com/api/merchandises/${merch?.id}`
 		const res = await fetch(url, {
-		  method: "POST",
-		  body: JSON.stringify({email, review}),
+		  method: "PATCH",
+		  body: JSON.stringify({review}),
 		  headers: {
 			  "Content-Type": "application/json"
 		  },

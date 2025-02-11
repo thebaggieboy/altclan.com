@@ -93,7 +93,7 @@ useEffect(() => {
 
 
 async function fetchProfile() {
-  const res =  await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${brand_user?.[0]?.id}`, {
+  const res =  await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${brand_user?.[0]?.id}/`, {
     method: "GET",
     headers: {
 

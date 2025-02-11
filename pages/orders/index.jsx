@@ -26,10 +26,10 @@ export default function Orders() {
   const getOrder = async()=>{
       console.log("Getting orders from api")
       try {
-          const orderUrl = await fetch("https://altclan-api.onrender.com/api/orders/")
-          const data = await orderUrl.json()
+          const orderUrl = await fetch(`https://altclan-api.onrender.com/api/users/${user?.[0]?.id}/`)
+          const data = await orderUrl?.json()
           console.log("User Orders: ", data)
-          const orderResult = data?.filter((product) => product.user_email.toLowerCase().includes(user[0]?.email.toLowerCase()) );
+          const orderResult = data
           setOrders(orderResult)
           console.log("Your order: ", orderResult)
       } catch (error) {
@@ -81,7 +81,7 @@ export default function Orders() {
       <> 
           {updateMessage == 'success' ? brandProfileSuccess : ""}
 
-<div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-5 xl:mx-auto">
+<div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-5 xl:mx-auto" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
   <h1 class="border-b  text-4xl ml-10 font-semibold">Profile</h1>
   <div class="grid grid-cols-8 pt-1 sm:grid-cols-10 ">
     
@@ -105,8 +105,8 @@ export default function Orders() {
     <div class="col-span-2 hidden sm:block">
       <ul>
 
-      <Link href={`/profile/${user?.[0]?.id}`}><li class="mt-2 text-xs cursor-pointer border-l-2  px-2 py-3 text-center font-semibold  transition hover:border-l-blue-700  hover:bg-black hover:text-white ">Accounts</li></Link>
-        <Link href="/orders"><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent bg-black text-white px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Orders</li></Link>
+      <Link href={`/profile/${user?.[0]?.id}`}><li class="mt-2 text-xs cursor-pointer border-l-2  px-2 py-3 text-center font-semibold  transition hover:border-l-yellow-300  hover:bg-black hover:text-white ">Accounts</li></Link>
+        <Link href="/orders"><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent bg-black text-white px-2 py-3 text-center font-semibold transition hover:bg-black border-l-yellow-300 transition hover:border-l-yellow-300 hover:text-white"  style={{color:"beige"}}>Orders</li></Link>
    <Link href="/wishlist">     <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Wishlist</li></Link>
         <Link href='/payment-method'><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Payment Methods</li></Link>
 		<Link href='/addresses'><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Addresses</li></Link>
@@ -122,7 +122,7 @@ export default function Orders() {
     
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <h1 className="text-lg px-2">Current Orders ({orders.length})</h1>
+    <h1 className="text-lg px-2">Current Orders ({orders?.length})</h1>
     <table class="w-full pt-3 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -142,7 +142,7 @@ export default function Orders() {
             </tr>
         </thead>
         <tbody>
-        {orders?.map(order=>(
+        {orders.map(order=>(
             <tr key={order.id} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
            
                 <>

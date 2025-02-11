@@ -85,7 +85,7 @@ export default function Address() {
     <> 
       {updateMessage == 'success' ? brandProfileAddressSuccess : ""}
 
-<div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-2 xl:mx-auto">
+<div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-2 xl:mx-auto" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
   <h1 class="border-b  text-4xl ml-10 font-semibold">Profile</h1>
   <div class="grid grid-cols-8 pt-1 sm:grid-cols-10  m-5">
     
@@ -230,7 +230,7 @@ export default function Address() {
                       Cancel
                     </button>
                     <button
-                    style={{backgroundColor: "black", color:"white"}}
+                    style={{backgroundColor: "beige", color:"black"}}
                       className="flex justify-center rounded py-2 px-6 font-medium "
                      
                       onClick={updateUserAddress}

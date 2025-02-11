@@ -83,14 +83,9 @@ export default function Settings() {
     <> 
       {updateMessage == 'success' ? brandProfileSuccess : ""}
 
-<div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-2 xl:mx-auto">
+<div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-2 xl:mx-auto" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
 <div className="ml-5 mt-2">
-   <button type="button" onClick={()=> router.back()} class="w-full flex items-center justify-center w-1/2 px-5 py-2 text-sm text-black transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
-    <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-    </svg>
-    <span>Go back</span>
-</button>
+  
    </div>
   <h1 class="border-b  text-4xl ml-10 font-semibold">Profile</h1>
   <div class="grid grid-cols-8 pt-1 sm:grid-cols-10  m-5">
@@ -115,7 +110,7 @@ export default function Settings() {
     <div class="col-span-2 hidden sm:block">
       <ul>
 
-        <Link href={`/profile/${user[0]?.id}`}><li class="mt-2 text-xs cursor-pointer border-l-2 bg-black px-2 py-3 text-center font-semibold text-white transition hover:border-l-blue-700  hover:bg-black hover:text-white">Accounts</li></Link>
+        <Link href={`/profile/${user[0]?.id}`}><li class="mt-2 text-xs cursor-pointer border-l-2 bg-black px-2 py-3 text-center font-semibold text-white border-l-yellow-300 transition hover:border-l-yellow-200  hover:bg-black hover:text-white"  style={{color:"beige", fontWeight:'bold'}}>Accounts</li></Link>
         <Link href="/orders"><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Orders</li></Link>
    <Link href="/security">     <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Security</li></Link>
    <Link href="/profile/billing">     <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Billing</li></Link>
@@ -156,7 +151,7 @@ export default function Settings() {
                        
                         </span>
                         <input
-                          className="w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+                          className="w-full rounded border border-stroke bg-gray py-3  px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                           type="text"
                           name="first_name"
                           id="first_name"
@@ -243,7 +238,7 @@ export default function Settings() {
                       Cancel
                     </button>
                     <button
-                    style={{backgroundColor: "black", color:"white"}}
+                    style={{backgroundColor: "beige", color:"black"}}
                       className="flex justify-center rounded py-2 px-6 font-medium "
                      
                       onClick={updateUserProfile}

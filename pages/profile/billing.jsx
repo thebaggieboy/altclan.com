@@ -118,7 +118,7 @@ export default function Settings() {
 
 
 
-    <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
+    <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
 
     <div class="mx-4  max-w-screen-xl sm:mx-8 xl:mx-auto">
 

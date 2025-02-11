@@ -3,7 +3,7 @@ import React from 'react'
 export default function PaymentSuccess() {
   return (
     <div>
-      <div className="bg-gray-100 h-screen">
+      <div className="bg-gray-100 h-screen" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
         <div className="bg-white p-6  md:mx-auto">
           <svg viewBox="0 0 24 24" className="text-green-600 w-16 h-16 mx-auto my-6">
             <path fill="currentColor"

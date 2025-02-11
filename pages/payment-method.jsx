@@ -49,7 +49,7 @@ let orderResults = []
 		})
 
 	}
-	const brandProfileSuccess =    <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
+	const brandProfileSuccess =    <div  class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
 	<svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
 	  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
 	</svg>
@@ -93,7 +93,7 @@ let orderResults = []
     <> 
       {updateMessage == 'success' ? brandProfileSuccess : ""}
 
-<div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-2 xl:mx-auto">
+<div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-2 xl:mx-auto" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
   <h1 class="border-b  text-4xl ml-10 font-semibold">Profile</h1>
   <div class="grid grid-cols-8 pt-1 sm:grid-cols-10  m-5">
     
@@ -121,7 +121,7 @@ let orderResults = []
       <Link href={`/profile/${user[0]?.id}`}><li class="mt-2 text-xs cursor-pointer border-l-2  px-2 py-3 text-center font-semibold transition hover:border-l-blue-700  hover:bg-black hover:text-white">Accounts</li></Link>
         <Link href="/orders"><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Orders</li></Link>
    <Link href="/wishlist">     <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Wishlist</li></Link>
-        <Link href='/payment-method'><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 bg-black text-white text-center font-semibold transition hover:bg-black hover:text-white">Payment Methods</li></Link>
+        <Link href='/payment-method'><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 bg-black text-white text-center font-semibold transition border-l-yellow-200 transition hover:border-l-yellow-100 hover:bg-black hover:text-white" style={{color:'beige', fontWeight:'bold'}} >Payment Methods</li></Link>
 		<Link href='/profile/address'><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Addresses</li></Link>
 	
       </ul>
@@ -138,33 +138,33 @@ let orderResults = []
 		<div className="grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 xl:gap-x-4">
 
     <div>
-    <div className="bg-gray-50 p-5" style={{width:300}}>
+    <div className="bg-gray-50 p-5" style={{width:400}}>
     <span className='text-red-700 text-xs' style={{float:'right'}}> <img src="/icons/delete.png" style={{height:15}} alt="" /> </span>
   <div>
   <img src="/icons/paystack.png" alt="cantdisplay" style={{height:40, width:60}} />
   <p className='font-bold lead text-sm'>Paystack</p>
   </div>
     <span className='text-xs text-gray-600'>Debit Card</span> 
-    <label for="" style={{float:"right"}} className='text-xs pt-2 text-gray-600'>Default <input type="radio" className='text-green-700' name="default" id=""  checked/> </label>
+    <label for="" style={{float:"right"}} className='text-xs pt-2 text-gray-600'>Default <input type="radio" className='text-green-700' name="default" id="paystack" checked/> </label>
 
     </div>
     </div>
 
     <div className=''>
-    <div className="bg-gray-50 p-5" style={{width:300}}>
+    <div className="bg-gray-50 p-5" style={{width:400}}>
     <span className='text-red-700 text-xs' style={{float:'right'}}> <img src="/icons/delete.png" style={{height:15}} alt="" /> </span>
   <div>
   <img src="/icons/credit-card.png" alt="cantdisplay" style={{height:40, width:40}} />
   <p className='font-bold lead text-sm'>Credit Card</p>
   </div>
     <span className='text-xs text-gray-600'>5897 **** **** ****</span> 
-    <label for="" style={{float:"right"}} className='text-xs pt-2 text-gray-600'>Set as default <input type="radio" className='text-green-700' name="default" id="" /> </label>
+    <label for="" style={{float:"right"}} className='text-xs pt-2 text-gray-600'>Set as default <input type="radio" className='text-green-700' name="default" id="credit_card" /> </label>
 
     </div>
     </div>
 
     <div>
-    <div className="bg-gray-50 p-5" style={{width:300}}>
+    <div className="bg-gray-50 p-5" style={{width:400}}>
     <span className='text-red-700 text-xs' style={{float:'right'}}> <img src="/icons/delete.png" style={{height:15}} alt="" /> </span>
   <div>
  
@@ -172,7 +172,7 @@ let orderResults = []
   <p className='font-bold lead text-sm'>Paypal</p>
   </div>
     <span className='text-xs text-gray-600'>jon*****@gmail.com</span> 
-    <label for="" style={{float:"right"}} className='text-xs pt-2 text-gray-600'>Set as default <input type="radio" className='text-green-700' name="default" id="" /> </label>
+    <label for="" style={{float:"right"}} className='text-xs pt-2 text-gray-600'>Set as default <input type="radio" className='text-green-700' name="default" id="paypal" /> </label>
 
     </div>
     </div>
