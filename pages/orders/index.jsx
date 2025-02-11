@@ -143,7 +143,7 @@ export default function Orders() {
         </thead>
         <tbody>
         {orders?.map(order=>(
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <tr key={order.id} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
            
                 <>
                 <td class="px-6 py-4 font-semibold text-xs text-gray-900 dark:text-white">
