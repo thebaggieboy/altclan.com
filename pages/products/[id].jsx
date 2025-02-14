@@ -16,6 +16,8 @@ import Review from "./../../components/Review"
 import { selectUser } from "../../features/user/userSlice";
 import Head from 'next/head'
 
+import styles from "../../styles/brand.module"
+
 const reviewSuccess = <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
 <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
   <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
@@ -88,6 +90,7 @@ export default function ProductDetail({ _id, merch }) {
 	const [isLoading, setIsLoading] = useState(true)
 	const [successText, setSuccessText] = useState("")
 	const [reviewPosted, setReviewPosted] = useState(false)	
+	const [reviewList, setReviewList] = useState(false)	
 	const [reviewErr, setReviewErr] = useState([])
 	function addToCart() {
 		setSuccessText("Item added to cart")
@@ -150,13 +153,40 @@ export default function ProductDetail({ _id, merch }) {
 	  console.log("Form Data: ", formData)
 	 
 	}
+	const getReviews = async(e)=>{
+		e.preventDefault()
+		const url = `https://altclan-api.onrender.com/api/merchandises/${merch?.id}`
+		const res = await fetch(url, {
+		  method: "GET",
+		 
+		  headers: {
+			  "Content-Type": "application/json"
+		  },
+	  })
+	
+	  const data = await res.json()
+	
+	  if (res.status >= 200 && res.status <= 209) {
+		console.log("review LIST")
+		setReviewList(true)
+		//router.push("#")
+	
+		  console.log(data)
+	  
+	
+	  const err = { ...data }
+	
+	  throw { err } 
+
+
+	  }
 
 	const addReview = async(e)=>{
 		e.preventDefault()
 		const url = `https://altclan-api.onrender.com/api/merchandises/${merch?.id}`
 		const res = await fetch(url, {
 		  method: "PATCH",
-		  body: JSON.stringify({review}),
+		  body: JSON.stringify({reviews:{user:user?.email, review:formData.review}}),
 		  headers: {
 			  "Content-Type": "application/json"
 		  },
@@ -311,7 +341,7 @@ export default function ProductDetail({ _id, merch }) {
                     </div>
                 </div>
             </div>
-            <div  class="md:flex-1 px-4">
+            <div onClick='#review' class="md:flex-1 px-4">
 				{added == true ? <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-1 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
 				<svg style={{fontFamily:"Poppins, Sans-Serif"}} class="w-6 h-6 font-bold text-green-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
   <path d="M12.268 6A2 2 0 0 0 14 9h1v1a2 2 0 0 0 3.04 1.708l-.311 1.496a1 1 0 0 1-.979.796H8.605l.208 1H16a3 3 0 1 1-2.83 2h-2.34a3 3 0 1 1-4.009-1.76L4.686 5H4a1 1 0 0 1 0-2h1.5a1 1 0 0 1 .979.796L6.939 6h5.329Z"/>
@@ -494,9 +524,29 @@ export default function ProductDetail({ _id, merch }) {
          
 	{reviewPosted == true ? reviewSuccess : ""}
 
+	{merch.reviews.map(m=>(
+	<>
+  <div className={styles.box } id="review">
+                <div className={styles.profile}>
+                  <img src="https://images.unsplash.com/photo-1653656120693-c987723b2046?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80" alt="" className={styles.img} />
+                  <div className={styles.bio}>
+                    <h2>{m?.email} </h2>
+                  </div>
+                </div>
+                <div className={styles.qoute}>
+                  <p>
+                    {m?.review}
+                  </p>
+                </div>
+              </div>
+	</>
+))}
 
 <form onSubmit={addReview}>
   <label for="message" style={{fontSize:20, fontWeight:'bold', fontFamily:"Poppins, Sans-Serif"}} class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your review</label> <br />
+
+
+
   <textarea onChange={inputChangeHandler} id="review" name="review" rows="4" class="block p-5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
   <button
 	type="submit"

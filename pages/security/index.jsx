@@ -119,9 +119,6 @@ export default function Settings() {
 
 
     <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
-    
-   
-    <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
       <div class="pt-4">
         <h1 class="py-2 text-2xl font-semibold">Security</h1>
       
@@ -166,11 +163,10 @@ export default function Settings() {
           Proceed with caution
         </p>
         <p class="mt-2">Make sure you have taken backup of your account in case you ever need to get access to your data. We will completely wipe your data. There is no way to access your account after this action.</p>
-        <button class="ml-auto text-sm font-semibold text-rose-600 underline decoration-2">Continue with deletion</button>
+        <a href={`/accounts/delete/${user[0]?.id}`} class="ml-auto text-sm font-semibold text-rose-600 underline decoration-2">Continue with deletion</a>
       </div>
     </div>
     
-    </div>
   </div>
 </div>
 
