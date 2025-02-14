@@ -562,3 +562,4 @@ export default function ProductDetail({ _id, merch }) {
 		</>
 	);
 }
+}

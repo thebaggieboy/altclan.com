@@ -6,8 +6,12 @@ import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/router'
 import Tabs from "./Tabs/Tab"
 import { selectUser } from '../../features/user/userSlice'
+import { QueryClient, useQueryClient } from "@tanstack/react-query";
+import fetchProductData from '../../lib/fetchProductData'
 
 import Link from "next/link"
+import fetchOrderData from '../../lib/fetchOrderData'
+const queryClient = new QueryClient()
 
 
 export default function Orders() {
@@ -23,26 +27,26 @@ export default function Orders() {
   
   let orderResults = []
 
-  const getOrder = async()=>{
-      console.log("Getting orders from api")
-      try {
-          const orderUrl = await fetch(`https://altclan-api.onrender.com/api/users/${user?.[0]?.id}/`)
-          const data = await orderUrl?.json()
-          console.log("User Orders: ", data)
-          const orderResult = data
-          setOrders(orderResult)
-          console.log("Your order: ", orderResult)
-      } catch (error) {
-          console.error("Error fetching orders:", error)
-      }
-  }
 
   useEffect(() => {
+    const getOrder = async()=>{
+        console.log("Getting orders from api")
+        try {
+            const orderUrl = await fetch(`https://altclan-api.onrender.com/api/users/${user?.[0]?.id}/`)
+            const data = await orderUrl?.json()
+            const orderResult = data
+            setOrders(orderResult)
+        
+        } catch (error) {
+            console.error("Error fetching orders:", error)
+        }
+    }
+  
       if (user !== null) {
           getOrder()
       }
   }, [user])
-  
+  console.log("Your order: ", orders.orders)
   const [formData, setFormData] = useState({
     email: user ? user?.[0]?.email : '',
     first_name: user ? user?.[0]?.first_name : '',
@@ -62,20 +66,9 @@ export default function Orders() {
       })
 
   }
-  const brandProfileSuccess = (
-      <div className="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
-          <svg className="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-          </svg>
-          <span className="sr-only">Info</span>
-          <div className='font-bold text-center'>
-              You have updated your user profile successfully
-          </div>
-      </div>
-  )
 
 
-  console.log("formData: ", formData)
+
 
   return (
       <> 
@@ -122,7 +115,7 @@ export default function Orders() {
     
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <h1 className="text-lg px-2">Current Orders ({orders?.length})</h1>
+    <h1 className="text-lg px-2">Current Orders ({orders?.orders?.length})</h1>
     <table class="w-full pt-3 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -134,6 +127,12 @@ export default function Orders() {
                     Qty
                 </th>
                 <th scope="col" class="px-2 py-3">
+                    Size
+                </th>
+                <th scope="col" class="px-2 py-3">
+                    Color
+                </th>
+                <th scope="col" class="px-2 py-3">
                     Price
                 </th>
                 <th scope="col" class="px-2 py-3">
@@ -142,23 +141,30 @@ export default function Orders() {
             </tr>
         </thead>
         <tbody>
-        {orders.map(order=>(
+        {orders?.orders?.map(order=>(
             <tr key={order.id} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
            
                 <>
                 <td class="px-6 py-4 font-semibold text-xs text-gray-900 dark:text-white">
-                {order?.tracking_number}        
+                {order?.id}        
             </td> 
             <td class="px-6 py-4 font-semibold text-xs text-gray-900 dark:text-white">
-                {order?.number_of_items}        
+                {order?.qty}        
             </td> 
 
             <td class="px-6 py-4 font-semibold text-xs text-gray-900 dark:text-white">
-                {order?.total_amount}        
+                {order?.size}        
             </td> 
-            <td class="px-6 py-4 font-semibold text-sm text-gray-900 dark:text-white">
+            <td class="px-6 py-4 font-semibold text-xs text-gray-900 dark:text-white">
+                {order?.color}        
+            </td> 
+            <td class="px-6 py-4 font-semibold text-xs text-gray-900 dark:text-white">
+                {order?.price}        
+            </td> 
+
+        {/* {{    <td class="px-6 py-4 font-semibold text-sm text-gray-900 dark:text-white">
                 {order?.delivered === false ? <p className="text-yellow-800 text-xs">Pending</p>  : <p className="text-green-800 text-xs">Completed</p>}        
-            </td> 
+            </td>}}  */}
              </>
             
             </tr>
