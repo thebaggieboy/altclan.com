@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Head from 'next/head'
 import { useRouter } from "next/router";
+import HeaderTab from "../../components/headers/HeaderTab";
 export default function Brands() {
   const [searchQuery, setSearchQuery] = useState('');
   // Results of the search query in an array
@@ -108,44 +109,40 @@ fetchBrands()
 
 
   return (
-    <div className="bg-white">
+ <>
+ <HeaderTab/>
+ <div className="bg-white">
   
       
-      <div className="max-w-2xl px-4  mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-      <div className="ml-2">
-   <button type="button" onClick={()=> router.back()} class="w-full flex items-center justify-center w-1/2 px-5 py-2 text-sm text-black transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
-    <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-    </svg>
+  <div className="max-w-2xl px-4 py-10 mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
+
+   <h1 className="bold text-xl mt-4">Brands</h1> <br/>
     
-</button>
-   </div>
-       <h1 className={styles.brands}>Brands</h1> <br/>
+
+
+    <div className="grid pt-1 grid-cols-2 gap-y-4 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
+      
+      {brandResult?.map((brand) => (
+        <Link key={brand.id} href={`/brands/${brand.id}?brand=${brand.brand_name}`} className="group">
+          <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-4 xl:aspect-h-4">
+            <img
+              src={brand.brand_logo}
+              alt={brand.imageAlt}
+              className="object-cover object-center w-full h-full group-hover:opacity-75"
+            />
+          </div>
+          <svg className={styles.rightContent} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="star"><path fill="none" stroke="#200E32" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.2135354,0.441329894 L12.5301907,5.09668871 C12.6437709,5.3306716 12.8673229,5.49423715 13.1274534,5.53368599 L18.3127795,6.28282419 C18.5232013,6.31151358 18.713271,6.4218659 18.8407265,6.58934431 C18.9681821,6.75682272 19.0224584,6.9675444 18.9914871,7.17465538 C18.9654336,7.34490401 18.8826605,7.50177662 18.7562018,7.62057098 L15.0006864,11.2592422 C14.8108765,11.4385657 14.7257803,11.7002187 14.7744505,11.9548706 L15.679394,17.0828999 C15.7448774,17.5054355 15.4552147,17.9019154 15.0278347,17.9747311 C14.8516089,18.001936 14.6711642,17.9738576 14.5120169,17.8944663 L9.88775575,15.4776038 C9.65675721,15.3522485 9.37670064,15.3522485 9.1457021,15.4776038 L4.49429266,17.9123029 C4.1040442,18.1096521 3.62530757,17.962958 3.41740993,17.5823254 C3.33635184,17.4288523 3.30778438,17.2536748 3.33596502,17.0828999 L4.24090849,11.9548706 C4.28467865,11.7005405 4.20030563,11.441111 4.01467262,11.2592422 L0.23200891,7.62057098 C-0.0773363034,7.31150312 -0.0773363034,6.81484985 0.23200891,6.50578199 C0.358259148,6.3905834 0.515216648,6.31324177 0.684480646,6.28282419 L5.86980673,5.53368599 C6.12870837,5.49136141 6.35105151,5.32868032 6.46706943,5.09668871 L8.78372471,0.441329894 C8.87526213,0.25256864 9.04026912,0.108236628 9.24131794,0.0410719808 C9.44236677,-0.0260926667 9.66241783,-0.0103975019 9.85155801,0.0845974179 C10.0076083,0.16259069 10.1343954,0.287540724 10.2135354,0.441329894 Z" transform="translate(2.5 3)"></path></svg>
+          <h3 className={styles.brandName}>
+            {brand?.brand_name }
+          </h3>
+          <p className={styles.followers}>{brand.brand_type}</p>
+        </Link>
         
-
-
-        <div className="grid pt-1 grid-cols-2 gap-y-4 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
-          
-          {brandResult?.map((brand) => (
-            <Link key={brand.id} href={`/brands/${brand.id}?brand=${brand.brand_name}`} className="group">
-              <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-4 xl:aspect-h-4">
-                <img
-                  src={brand.brand_logo}
-                  alt={brand.imageAlt}
-                  className="object-cover object-center w-full h-full group-hover:opacity-75"
-                />
-              </div>
-              <svg className={styles.rightContent} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="star"><path fill="none" stroke="#200E32" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.2135354,0.441329894 L12.5301907,5.09668871 C12.6437709,5.3306716 12.8673229,5.49423715 13.1274534,5.53368599 L18.3127795,6.28282419 C18.5232013,6.31151358 18.713271,6.4218659 18.8407265,6.58934431 C18.9681821,6.75682272 19.0224584,6.9675444 18.9914871,7.17465538 C18.9654336,7.34490401 18.8826605,7.50177662 18.7562018,7.62057098 L15.0006864,11.2592422 C14.8108765,11.4385657 14.7257803,11.7002187 14.7744505,11.9548706 L15.679394,17.0828999 C15.7448774,17.5054355 15.4552147,17.9019154 15.0278347,17.9747311 C14.8516089,18.001936 14.6711642,17.9738576 14.5120169,17.8944663 L9.88775575,15.4776038 C9.65675721,15.3522485 9.37670064,15.3522485 9.1457021,15.4776038 L4.49429266,17.9123029 C4.1040442,18.1096521 3.62530757,17.962958 3.41740993,17.5823254 C3.33635184,17.4288523 3.30778438,17.2536748 3.33596502,17.0828999 L4.24090849,11.9548706 C4.28467865,11.7005405 4.20030563,11.441111 4.01467262,11.2592422 L0.23200891,7.62057098 C-0.0773363034,7.31150312 -0.0773363034,6.81484985 0.23200891,6.50578199 C0.358259148,6.3905834 0.515216648,6.31324177 0.684480646,6.28282419 L5.86980673,5.53368599 C6.12870837,5.49136141 6.35105151,5.32868032 6.46706943,5.09668871 L8.78372471,0.441329894 C8.87526213,0.25256864 9.04026912,0.108236628 9.24131794,0.0410719808 C9.44236677,-0.0260926667 9.66241783,-0.0103975019 9.85155801,0.0845974179 C10.0076083,0.16259069 10.1343954,0.287540724 10.2135354,0.441329894 Z" transform="translate(2.5 3)"></path></svg>
-              <h3 className={styles.brandName}>
-                {brand?.brand_name }
-              </h3>
-              <p className={styles.followers}>{brand.brand_type}</p>
-            </Link>
-            
-          ))}
-        </div>
-      </div>
-      <br/>
+      ))}
     </div>
+  </div>
+  <br/>
+</div>
+ </>
   )
 }

@@ -20,7 +20,7 @@ const MapOne = dynamic(() => import("../../../components/Sidebar/Maps/MapOne"), 
 });
 import { useSelector } from "react-redux";
 import useData from "../../../hooks/useData";
-import HeaderTab from "../../../components/headers/HeaderTab"
+
 import useOrder from '../../../hooks/useOrder'
 import useGetProducts from "../../../hooks/useGetProducts";
 import Link from "next/link";
@@ -44,15 +44,8 @@ const ECommerce = ({merch}) => {
   
    const { data2, isLoading2, error2} = useGetProducts(`https://altclan-brands-api-1-1.onrender.com/api/merchandises`)
   const { data, isLoading, error} = useData('https://altclan-api.onrender.com/api/orders/')
-  const today = new Date().toISOString().split('T')[0];
-  console.log("Today Date: ", today);  // Example output: "2025-02-12"
-  
-  const now = new Date();
-  const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-  const nextMonthNumber = nextMonth.getMonth() + 1; // +1 because getMonth() is zero-based
-  
-  console.log(nextMonthNumber);
-  console.log(nextMonthNumber);  
+
+
     useEffect(() => {
 		if (user == null) {
 			router.push("/brands/login");
@@ -101,11 +94,11 @@ const ECommerce = ({merch}) => {
     
     <>
   
-  <div class=" min-h-screen max-w-screen-xl sm:mx-8  xl:mx-auto" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
- 
-  <div class="grid grid-cols-8  sm:grid-cols-10  ">
+  <div class=" min-h-screen max-w-screen-xl sm:mx-8 p-2 xl:mx-auto" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
+>
+  <div class="grid grid-cols-8  sm:grid-cols-10 ">
     
-    <div class="relative  w-56 sm:hidden">
+    <div class="relative w-56 sm:hidden">
       <input class="peer hidden" type="checkbox" name="select-1" id="select-1" />
       <label for="select-1" class="flex w-full cursor-pointer select-none rounded-lg border p-2 px-3 text-sm text-gray-700 ring-blue-700 peer-checked:ring">Accounts </label>
       <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute right-0 top-3 ml-auto mr-5 h-4 text-slate-700 transition peer-checked:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -137,13 +130,11 @@ const ECommerce = ({merch}) => {
     </div>
 
 
-
-
-    <div class="col-span-8 overflow-hidden rounded-xl  sm:px-8 sm:shadow">
+    <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
     
     <h1 className="mt-5 p-2 bolder text-center" style={{fontFamily:'Poppins, Sans-serif', fontSize:20, fontWeight:"bolder"}}>Welcome Altclan</h1>
       <div className="mt-4 p-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
-        <CardDataStats title="Revenue" total="₦0.00" rate="0.00%">
+        <CardDataStats title="Total Revenue" total="₦0.00" rate="0.00%">
           <svg
             className="fill-primary dark:fill-white"
             width="22"
@@ -162,7 +153,7 @@ const ECommerce = ({merch}) => {
             />
           </svg>
         </CardDataStats>
-        <CardDataStats title="Products" total='0' rate="0.00%" levelUp>
+        <CardDataStats title="Products" total='' rate="0.00%" levelUp>
           <svg
             className="fill-primary dark:fill-white"
             width="20"
@@ -186,7 +177,7 @@ const ECommerce = ({merch}) => {
           </svg>
         </CardDataStats>
        
-        <CardDataStats title="Orders" total='0' rate="0.00%" levelUp>
+        <CardDataStats title="Orders" total={orderResult?.length} rate="0.00%" levelUp>
           <svg
             className="fill-primary dark:fill-white"
             width="20"

@@ -6,7 +6,7 @@ import {selectBrandUser} from "../../../features/brands/brandUserSlice"
 import { useQuery } from "@tanstack/react-query";
 import fetchProfileData from "../../../lib/fetchProfileData";
 import { USER_TYPES, selectUser, selectUserType, setUser } from "../../../features/user/userSlice";
-import styles from "../../../styles/brand-bio.module.css";
+import styles from "../../../styles/brand-merchandise.module.css";
 import BrandBioForm from '../../../components/brands/BrandSignupForm';
 import BrandMerchForm from '../../../components/brands/BrandMerchForm';
 
