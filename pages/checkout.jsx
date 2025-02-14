@@ -136,8 +136,8 @@ export default function Checkout({ merchs }) {
       
 
       
-      //dispatch(clearCart())
-      //router.push('/payment-success?order=success')
+      dispatch(clearCart())
+      router.push('/payment-success?order=success')
     }
 
   }
