@@ -30,11 +30,7 @@ export default function about() {
         </h1>
 
         <p style={{fontSize:12}}>
-        At AltClan, we're all about celebrating uniqueness and self-expression. From alternative fashion to diverse styles in music, art, and lifestyle, we're your ultimate destination for embracing what makes you stand out.
-
-Join our vibrant community of like-minded individuals who dare to be different. Explore curated collections, personalize your look, and connect with fellow trendsetters who share your passion for alternative style.
-
-Come as you are and let your true self shine. Welcome to AltClan, where individuality reigns supreme! 🖤✨
+        At AltClan, we're all about celebrating uniqueness and self-expression. Join our vibrant community of like-minded individuals who dare to be different. Explore curated collections, personalize your look, and connect with fellow trendsetters who share your passion for alternative style. Welcome to AltClan, where individuality reigns supreme! 🖤✨
         </p> <br/>
       </div>
 
@@ -112,7 +108,7 @@ Come as you are and let your true self shine. Welcome to AltClan, where individu
                 First
               </p>
               <p style={{fontSize:12}}>
-              AltClan offers users the opportunity to discover unique styles and trends that aren't typically found in mainstream fashion. Whether it's edgy streetwear, alte', vintage finds, or avant-garde designs, our app provides a platform to explore and embrace diverse forms of self-expression.
+              AltClan offers users the opportunity to discover unique styles and trends that aren't typically found in mainstream fashion.
               
               </p>
             </div>
@@ -126,7 +122,7 @@ Come as you are and let your true self shine. Welcome to AltClan, where individu
                 Second
               </p>
               <p style={{fontSize:12}}>
-              For users seeking a sense of community and belonging, AltClan fosters connections with fellow enthusiasts of alternative style. Our app features communities, and some social networking functionalities, allowing users to interact, share ideas, and find inspiration from others who share their passion.
+              For users seeking a sense of community and belonging, AltClan fosters connections with fellow enthusiasts of alternative style. 
               </p>
             </div>
             <div className={styles.columnTwo}>
@@ -177,7 +173,7 @@ Come as you are and let your true self shine. Welcome to AltClan, where individu
                 Fifth
               </p>
               <p style={{fontSize:12}}>
-              With AltClan, users gain access to exclusive collections, limited editions, and collaborations with emerging designers and underground labels. By downloading the app, users can stay updated on new releases and have the opportunity to snag coveted pieces 
+              With AltClan, users gain access to exclusive collections, limited editions, and collaborations with emerging designers and underground labels.  
               </p>
             </div>
           </div>
