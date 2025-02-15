@@ -96,6 +96,7 @@ export default function Checkout({ merchs }) {
     cartOrders.push(cartItems)
     console.log("Cart ORders: ", cartOrders)
     const orderUrl = `https://altclan-api.onrender.com/api/users/${user[0]?.id}/`
+    const paymentUrl =""
     console.log("Creating a new order for items in cart.")
     const res = await fetch(orderUrl, {
       method: "PATCH",
@@ -136,8 +137,8 @@ export default function Checkout({ merchs }) {
       
 
       
-      dispatch(clearCart())
-      router.push('/payment-success?order=success')
+      //dispatch(clearCart())
+      //router.push('/payment-success?order=success')
     }
 
   }

@@ -21,6 +21,6 @@ export const { setOrder, addOrder } = orderSlice.actions
 
 
 //selectors
-export const selectOrder = mainState => mainState.order.order
+export const selectOrder = mainState => mainState.order?.order
 
 export default orderSlice.reducer

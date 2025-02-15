@@ -11,13 +11,14 @@ import fetchProductData from '../../lib/fetchProductData'
 
 import Link from "next/link"
 import fetchOrderData from '../../lib/fetchOrderData'
+import { selectOrder, setOrder } from '../../features/orders/ordersSlice'
 const queryClient = new QueryClient()
 
 
 export default function Orders() {
 
   const user = useSelector(selectUser);
-  
+  const order= useSelector(selectOrder) 
   const router = useRouter()
   const dispatch = useDispatch()
   const searchParams = useSearchParams();
@@ -36,6 +37,7 @@ export default function Orders() {
             const data = await orderUrl?.json()
             const orderResult = data
             setOrders(orderResult)
+            dispatch(setOrder(orderResult.orders))
         
         } catch (error) {
             console.error("Error fetching orders:", error)
@@ -46,7 +48,10 @@ export default function Orders() {
           getOrder()
       }
   }, [user])
-  console.log("Your order: ", orders.orders)
+
+  
+  console.log("order state: ", order?.orders)
+
   const [formData, setFormData] = useState({
     email: user ? user?.[0]?.email : '',
     first_name: user ? user?.[0]?.first_name : '',
@@ -115,13 +120,13 @@ export default function Orders() {
     
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <h1 className="text-lg px-2">Current Orders ({orders?.orders?.length})</h1>
+    <h1 className="text-lg px-2">Current Orders ({user?.[0]?.orders?.length})</h1>
     <table class="w-full pt-3 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
             
                 <th scope="col" class="px-2 py-3">
-                    Tracking ID
+                    ID
                 </th>
                 <th scope="col" class="px-2 py-3">
                     Qty
@@ -141,7 +146,7 @@ export default function Orders() {
             </tr>
         </thead>
         <tbody>
-        {orders?.orders?.map(order=>(
+        {order?.map((order)=>(
             <tr key={order.id} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
            
                 <>
