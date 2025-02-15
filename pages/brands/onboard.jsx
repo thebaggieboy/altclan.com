@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function OnBoard() {
   return (
-    <div>
-      <div className="bg-gray-100 h-screen" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
+    <div className="h-screen">
+      <div className="bg-gray-100 " style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
         <div className="bg-white p-6  md:mx-auto">
           <svg viewBox="0 0 24 24" className="text-green-600 w-16 h-16 mx-auto my-6">
             <path fill="currentColor"
@@ -13,15 +13,15 @@ export default function OnBoard() {
           <div className="text-center">
             <h3 className="md:text-2xl text-base text-gray-900 font-semibold text-center">Account Created!</h3>
             <p className="text-gray-600 my-2">Thank you for registering as a brand with altclan.</p>
-            <p> Have a great day!  </p> <br />
-            <div className="py-5 text-center">
-              <a href="/products" className="px-12 bg-black text-white font-semibold py-4">
+      
+            <div className="py-5 mt-5 text-center">
+              <a href="/products" className="px-12 bg-yellow-100 text-black font-semibold py-4">
                 View Profile
               </a>
-            </div>
-            <div className="py-5 text-center">
-              <a href="/products" className="px-12 bg-black text-white font-semibold py-4">
-                Go to dashbard
+            </div> 
+            <div className="py-10 text-center">
+              <a href="/brands/dashboard" className="px-12 bg-black text-white font-semibold py-4">
+                Go to dashboard
               </a>
             </div>
           </div>
