@@ -90,19 +90,26 @@ export default function Checkout({ merchs }) {
     // get paystack_charge_id
   }
   const { isPending: useOrderPending, error: useOrderError, mutateAsync: orderFn, data: useOrderData } = useOrder('https://altclan-api.onrender.com/api/order/', orderSuccess, USER_TYPES.user)
+  const currentDate = new Date().toLocaleDateString();
+  const currentTime = new Date().toLocaleTimeString();
 
   const createOrder = async()=>{
     const orderItems = cartItems.map(item => String(item)); 
     cartOrders.push(cartItems)
     console.log("Cart ORders: ", cartOrders)
-    const orderUrl = `https://altclan-api.onrender.com/api/users/${user[0]?.id}/`
+    console.log("Cders: ", cartOrders)
+    const orderUrl = `https://altclan-api.onrender.com/api/orders/`
     const paymentUrl =""
     console.log("Creating a new order for items in cart.")
     const res = await fetch(orderUrl, {
-      method: "PATCH",
+      method: "POST",
       body: JSON.stringify({
+         user:user?.[0]?.email,
+         item:cartOrders,
+         total_amount:grandTotal
+
          
-         orders:cartOrders} ),
+        } ),
       headers: {
           "Content-Type": "application/json"
       },

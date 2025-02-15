@@ -21,36 +21,48 @@ export default function Orders() {
   const order= useSelector(selectOrder) 
   const router = useRouter()
   const dispatch = useDispatch()
+ const [searchQuery, setSearchQuery] = useState('');
   const searchParams = useSearchParams();
   const updateMessage = searchParams.get('update')
   const [orders, setOrders] = useState([])
   const [orderError, setOrderError] = useState('No current Order')
-  
+  const [searchResult, setSearchResult] = useState([])    
+  const search = searchParams.get('search')
+    
   let orderResults = []
+  const [userOrders, setUserOrders] = useState([]);
 
+ 
+
+const fetchOrder = async()=>{
+    console.log("Getting orders from api")
+    try {
+        const orderUrl = await fetch(`https://altclan-api.onrender.com/api/orders/`)
+        const data = await orderUrl?.json()
+        const orderResult = data
+        setOrders(orderResult)
+        dispatch(setOrder(orderResult))
+        const filteredOrders = orders.filter(o => o?.email === user[0]?.email);
+        setUserOrders(filteredOrders);
+        console.log("fetching orders:", orders)
+    } catch (error) {
+        console.error("Error fetching orders:", error)
+    }
+}
 
   useEffect(() => {
-    const getOrder = async()=>{
-        console.log("Getting orders from api")
-        try {
-            const orderUrl = await fetch(`https://altclan-api.onrender.com/api/users/${user?.[0]?.id}/`)
-            const data = await orderUrl?.json()
-            const orderResult = data
-            setOrders(orderResult)
-            dispatch(setOrder(orderResult.orders))
-        
-        } catch (error) {
-            console.error("Error fetching orders:", error)
-        }
-    }
-  
+        fetchOrder()
       if (user !== null) {
-          getOrder()
+            setSearchQuery(user[0]?.email);      
       }
+
+
+   
   }, [user])
 
-  
-  console.log("order state: ", order?.orders)
+
+
+  console.log("order state: ", orders)
 
   const [formData, setFormData] = useState({
     email: user ? user?.[0]?.email : '',
