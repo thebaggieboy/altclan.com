@@ -93,10 +93,6 @@ const options: ApexOptions = {
   xaxis: {
     type: "category",
     categories: [
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
       "Jan",
       "Feb",
       "Mar",
@@ -105,6 +101,11 @@ const options: ApexOptions = {
       "Jun",
       "Jul",
       "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+      
     ],
     axisBorder: {
       show: false,
