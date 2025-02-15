@@ -24,6 +24,8 @@
     ],
     "strictNullChecks": true
   },
+
+  
   "include": [
     "next-env.d.ts",
     "**/*.ts",
@@ -46,5 +48,6 @@
   ],
   "paths": {
     "@/*": ["./*"]
-  }
+  },
+  
 }
