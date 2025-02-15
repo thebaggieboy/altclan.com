@@ -26,7 +26,7 @@ import useGetProducts from "../../../hooks/useGetProducts";
 import Link from "next/link";
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import fetchProductData from '../../../lib/fetchProductData'
-import Review from "./../../../components/Review"
+import Review from "../../../components/Review"
 const queryClient = new QueryClient()
 
 
@@ -95,7 +95,7 @@ const ECommerce = ({merch}) => {
     <>
   
   <div class=" min-h-screen max-w-screen-xl sm:mx-8 p-2 xl:mx-auto" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
->
+
   <div class="grid grid-cols-8  sm:grid-cols-10 ">
     
     <div class="relative w-56 sm:hidden">
