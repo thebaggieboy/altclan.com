@@ -56,7 +56,7 @@ export default function Login(req, res) {
             router.push(`/brands/register/brand-logo`)
         }
         if(brand_user[0]?.brand_name !== '' && brand_user[0]?.brand_bio !== "" && brand_user[0]?.brand_logo !== null){
-            router.push(`/brands/profile/${brand_user?.[0]?.brand_name}`)
+            router.push(`/brands/profile/${brand_user?.[0]?.id}/${brand_user[0]?.brand_name}`)
        
         }
        
@@ -73,8 +73,7 @@ export default function Login(req, res) {
         email: "",
         password: "",
     })
-    console.log("Brand Token State: ", token)
-	
+   
     const inputChangeHandler = (e) => {
         const { name, value } = e.target
         setFormData((prevValue) => {
@@ -86,9 +85,7 @@ export default function Login(req, res) {
 
     }
 
-    console.log(error)
-
-
+  
     async function loginEmail(){
 		dispatch(setUserEmail(formData?.email))
 		console.log("User Email: ", user_email)

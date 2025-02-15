@@ -98,7 +98,7 @@ export default function Checkout({ merchs }) {
     cartOrders.push(cartItems)
     console.log("Cart ORders: ", cartOrders)
     console.log("Cders: ", cartOrders)
-    const orderUrl = `https://altclan-api.onrender.com/api/orders/`
+    const orderUrl = `https://altclan-brands-api-1-1.onrender.com/api/orders/`
     const paymentUrl =""
     console.log("Creating a new order for items in cart.")
     const res = await fetch(orderUrl, {
