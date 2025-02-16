@@ -1,4 +1,4 @@
-// 'use client';
+'use client';
 
 import { Card, LineChart, List, ListItem } from '@tremor/react';
 
@@ -105,7 +105,7 @@ const statusColor = {
   Affiliate: 'bg-fuchsia-500',
 };
 
-export default function Example() {
+export default function MonthToDateChart() {
   return (
     <>
       <Card className="sm:mx-auto sm:max-w-md">

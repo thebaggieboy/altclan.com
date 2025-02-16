@@ -30,6 +30,9 @@ import Review from "./../../../components/Review"
 const queryClient = new QueryClient()
 
 
+import MonthToDateChart from "../../../components/Charts/MonthToDateChart"
+
+
 const ECommerce = ({merch}) => {
   const [query, setQuery] = useState([])
   const user = useSelector(selectUser)
