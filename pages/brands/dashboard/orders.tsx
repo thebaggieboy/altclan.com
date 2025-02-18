@@ -77,7 +77,7 @@ const ECommerce = ({merch}) => {
 
   const totalCustomers = () =>{
     // Count the number of followers in the followers array using length
-    
+
   }
 
   const totalTransactions = () =>{
@@ -130,7 +130,7 @@ const ECommerce = ({merch}) => {
 
     <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
     
-    <h1 className="mt-5 p-2 bolder text-center" style={{fontFamily:'Poppins, Sans-serif', fontSize:20, fontWeight:"bolder"}}>Customers</h1>
+    <h1 className="mt-4 p-2 bold" style={{fontFamily:'Poppins, Sans-serif', fontSize:20, fontWeight:"bolder"}}>Orders</h1>
     <button  className="bg-black text-white float-right p-3 rounded">+Add New Order</button> <br />
       <div className="mt-4 p-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <CardDataStats title="Total Orders" total="0" >

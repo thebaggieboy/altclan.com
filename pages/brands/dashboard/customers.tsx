@@ -133,7 +133,7 @@ const ECommerce = ({merch}) => {
 
     <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
     
-    <h1 className="mt-5 p-2 bolder text-center" style={{fontFamily:'Poppins, Sans-serif', fontSize:20, fontWeight:"bolder"}}>Customers</h1>
+    <h1 className="mt-4 p-2 bold" style={{fontFamily:'Poppins, Sans-serif', fontSize:25, fontWeight:"bolder"}}>Customers</h1>
     <a href='/brands/dashboard/customer_create' style={{backgroundColor:"beige"}}  className=" text-black text-xs float-right p-3 rounded">+Add New Customer</a> <br />
       <div className="mt-4 p-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <CardDataStats title="Total Customers" total="0" >

@@ -33,7 +33,7 @@ const queryClient = new QueryClient()
 import MonthToDateChart from "../../../components/Charts/MonthToDateChart"
 import RevenueByMonth from "../../../components/Charts/RevenueByMonth"
 import SalesOverViewChart from "../../../components/Charts/SalesOverViewChart"
-
+import RecentOrdersTable from "../../../components/Tables/RecentOrders"
 
 const ECommerce = ({merch}) => {
   const [query, setQuery] = useState([])
@@ -143,10 +143,10 @@ const ECommerce = ({merch}) => {
 
 
 
-
     <div class="col-span-8 overflow-hidden rounded-xl  sm:px-8 sm:shadow">
     
-    <h1 className="mt-5 p-2 bolder text-center" style={{fontFamily:'Poppins, Sans-serif', fontSize:20, fontWeight:"bolder"}}>Welcome Altclan</h1>
+    <h1 className="mt-4 p-2 bold" style={{fontFamily:'Poppins, Sans-serif', fontSize:25, fontWeight:"bolder"}}>Welcome {user?.[0]?.brand_name}  </h1>
+    <p className="mt-2 p-2 text-sm text-gray-500">Welcome to your dashboard. Here you can view your sales, orders, and customers.</p>
       <div className="mt-4 p-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <CardDataStats title="Revenue" total="₦0.00" rate="0.00%">
           <svg
@@ -240,17 +240,9 @@ const ECommerce = ({merch}) => {
        
         </div>
         <br />
-      <div className="mt-4 p-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-     
-      
-        <ChartTwo />
-        <ChartThree />
-        <MapOne />
         <div className="col-span-12 xl:col-span-8">
-          <TableOne />
+          <RecentOrdersTable />
         </div>
-        <ChatCard />
-      </div>
     
     </div>
   </div>
