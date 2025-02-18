@@ -31,6 +31,8 @@ const queryClient = new QueryClient()
 
 
 import MonthToDateChart from "../../../components/Charts/MonthToDateChart"
+import RevenueByMonth from "../../../components/Charts/RevenueByMonth"
+import SalesOverViewChart from "../../../components/Charts/SalesOverViewChart"
 
 
 const ECommerce = ({merch}) => {
@@ -232,10 +234,15 @@ const ECommerce = ({merch}) => {
           </svg>
         </CardDataStats>
       
-      </div>
-
+      </div> <br />
+        <div className="p-4">
+        <RevenueByMonth/> <br />
+       
+        </div>
+        <br />
       <div className="mt-4 p-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-        <ChartOne />
+     
+      
         <ChartTwo />
         <ChartThree />
         <MapOne />

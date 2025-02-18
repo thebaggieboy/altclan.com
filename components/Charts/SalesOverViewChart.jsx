@@ -78,11 +78,11 @@ function valueFormatter(number) {
   return formatter.format(number);
 }
 
-export default function Example() {
+export default function SalesOverViewChart() {
   const [showComparison, setShowComparison] = useState(false);
   return (
     <>
-      <Card className="sm:mx-auto sm:max-w-2xl">
+      <Card className="p-5">
         <h3 className="ml-1 mr-1 font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
           Sales overview
         </h3>
@@ -98,7 +98,7 @@ export default function Example() {
           colors={showComparison ? ['cyan', 'blue'] : ['blue']}
           valueFormatter={valueFormatter}
           yAxisWidth={50}
-          className="mt-6 hidden h-60 sm:block"
+          className="mt-6  hidden h-60 sm:block"
         />
         <BarChart
           data={data}

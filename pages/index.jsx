@@ -93,7 +93,7 @@ export default function Home() {
               </CarouselWrapper>
               <div className="w-full h-full p-5 bg-black/40 flex flex-col items-center justify-center gap-y-8  col-start-1 col-end-2 row-start-1 row-end-2 z-[2]">
                 
-                <h1 className=" md:text-2xl font-semibold " style={{ fontFamily:'Poppins, Sans-serif', lineHeight:'120%', letterSpacing:3, textTransform:'uppercase'}}>Discover top styles of the season, underground lables, emerging designers, exclusive brands and amazing aesthetics now at better prices.</h1>
+                <h1 className=" md:text-2xl font-semibold " style={{ fontFamily:'Poppins, Sans-serif', lineHeight:'120%', letterSpacing:3, textTransform:'uppercase'}}>Discover top styles of the season, underground labels, emerging designers, and exclusive aesthetics now at better prices.</h1>
                 <div style={{fontFamily:'Poppins, Sans-serif', lineHeight:'100%', letterSpacing:3}} className="flex items-center gap-x-8">
                   <Link href="/products?q=women">
                     <button style={{fontFamily:'Poppins, Sans-serif', lineHeight:'100%', letterSpacing:2}} className="py-2 px-8 uppercase bg-white font-bold text-black text-sm md:text-base">shop women</button>

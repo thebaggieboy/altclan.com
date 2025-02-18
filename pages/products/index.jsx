@@ -7,6 +7,7 @@ import {
 	MinusIcon,
 	PlusIcon,
 	Squares2X2Icon,
+	InfiniteScrollIcon,
 } from "@heroicons/react/20/solid";
 import useMerch from "../../hooks/useMerch";
 import { CartContext } from "../../context/CartContext";
@@ -333,6 +334,19 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 																		>
 																			{option.label}
 																		</label>
+																		{isLast && (
+																			<div className="flex justify-center w-full mt-8">
+																				<button
+																					onClick={() => setPage(prev => prev + 1)}
+																					disabled={!newLimit}
+																					className={`px-4 py-2 text-white rounded ${
+																						!newLimit ? 'bg-gray-300' : 'bg-black hover:bg-gray-800'
+																					}`}
+																				>
+																					{isLoading ? 'Loading...' : 'Load More'}
+																				</button>
+																			</div>
+																		)}
 																	</div>
 																))}
 															</div>
@@ -401,7 +415,7 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 
 							<button
 								type="button"
-								className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+								className="-m-2 ml-4 p-2 mt-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
 								onClick={() => setMobileFiltersOpen(true)}
 							>
 								<span className="sr-only">Filters</span>

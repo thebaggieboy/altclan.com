@@ -1,6 +1,24 @@
-import React from 'react'
+import { useRouter } from 'next/router'
+import React, { useState, useEffect } from 'react'
+import { selectUser, setUser, USER_TYPES } from '../../features/user/userSlice'
+import { useDispatch, useSelector } from 'react-redux'
+
 
 export default function OnBoard() {
+  const user = useSelector(selectUser)
+  const router = useRouter()
+  async function signupSuccess(){
+    router.push(`/brands/profile/${user[0]?.id}?brand=${user[0]?.brand_name}`)
+  }
+ useEffect(() => {
+    if (user === null) {
+      router.push("/brands/login");
+    }
+  
+
+  }, [user]);
+  
+
   return (
     <div className="h-screen">
       <div className="bg-gray-100 " style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
@@ -15,9 +33,9 @@ export default function OnBoard() {
             <p className="text-gray-600 my-2">Thank you for registering as a brand with altclan.</p>
       
             <div className="py-5 mt-5 text-center">
-              <a href="/products" className="px-12 bg-yellow-100 text-black font-semibold py-4">
+              <button onClick={signupSuccess} className="px-12 bg-yellow-100 text-black font-semibold py-4">
                 View Profile
-              </a>
+              </button>
             </div> 
             <div className="py-10 text-center">
               <a href="/brands/dashboard" className="px-12 bg-black text-white font-semibold py-4">

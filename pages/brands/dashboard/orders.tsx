@@ -1,15 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ChartOne from "../../../components/Charts/ChartOne";
-import ChartThree from "../../../components/Charts/ChartThree";
-import ChartTwo from "../../../components/Charts/ChartTwo";
-import ChatCard from "../../../components/Chat/ChatCard";
-import TableOne from "../../../components/Tables/TableOne";
+
+import OrdersTable from "../../../components/Tables/OrdersTable";
 import CardDataStats from "../../../components/CardDataStats";
 // import Map from "../../../components/Maps/TestMap";
 // without this the component renders on server and throws an error
 import dynamic from "next/dynamic";
-import useDashboard from "../../../hooks/useDashboard";
+import userOrder from "../../../hooks/userOrder";
 
 import { useSearchParams } from 'next/navigation'
 import { USER_TYPES, selectUser } from "../../../features/user/userSlice";
@@ -43,7 +40,7 @@ const ECommerce = ({merch}) => {
    const [total, setTotal] = useState('')
   
    const { data2, isLoading2, error2} = useGetProducts(`https://altclan-brands-api-1-1.onrender.com/api/merchandises`)
-  const { data, isLoading, error} = useData('https://altclan-api.onrender.com/api/orders/')
+   const { data, isLoading, error } = useOrder(`https://altclan-brands-api-1-1.onrender.com/api/orders/`);
 
 
     useEffect(() => {
@@ -56,14 +53,14 @@ const ECommerce = ({merch}) => {
   useEffect(() => {
 
     const productResults = data2?.filter((product) => product.brand_name?.toLowerCase().includes(user[0]?.brand_name.toLowerCase()) );
-    const orderResults = data?.filter((order) => order.name_of_brand?.toLowerCase().includes(user[0]?.brand_name.toLowerCase()) );
+    const orderResults = data?.filter((order) => order.item?.toLowerCase().includes(user[0]?.brand_name.toLowerCase()) );
     const sales = data?.filter((order) => order?.delivered == true );
 
     setProductResult(productResults);
     setOrderResult(orderResults)
     setSalesResult(sales)
     var total = data?.reduce((accum, product) => accum + product.total_amount, 0)
-    console.log('orders total: ', total)
+    console.log('orders total: ', orderResult)
     setTotal(total)
   }, [searchQuery, data, data2, loggedInBrand, productResult]);
 
@@ -80,6 +77,7 @@ const ECommerce = ({merch}) => {
 
   const totalCustomers = () =>{
     // Count the number of followers in the followers array using length
+    
   }
 
   const totalTransactions = () =>{
@@ -182,7 +180,7 @@ const ECommerce = ({merch}) => {
        
       
       </div>
-      <TableOne />
+      <OrdersTable />
        
       <div className="mt-4 p-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
      

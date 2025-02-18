@@ -12,8 +12,10 @@ import fetchProductData from '../../lib/fetchProductData'
 import Link from "next/link"
 import fetchOrderData from '../../lib/fetchOrderData'
 import { selectOrder, setOrder } from '../../features/orders/ordersSlice'
+import usePayment from '../../hooks/usePayment'
+import useOrder from '../../hooks/useOrder'
 const queryClient = new QueryClient()
-
+useOrder
 
 export default function Orders() {
 
@@ -32,19 +34,19 @@ export default function Orders() {
   let orderResults = []
   const [userOrders, setUserOrders] = useState([]);
 
- 
+  const { data, isLoading, error } = useOrder(`https://altclan-brands-api-1-1.onrender.com/api/orders/`);
 
 const fetchOrder = async()=>{
     console.log("Getting orders from api")
     try {
-        const orderUrl = await fetch(`https://altclan-api.onrender.com/api/orders/`)
-        const data = await orderUrl?.json()
-        const orderResult = data
+     const orderResult = data
         setOrders(orderResult)
         dispatch(setOrder(orderResult))
-        const filteredOrders = orders.filter(o => o?.email === user[0]?.email);
+        const filteredOrders = data?.filter(o => o?.email === user[0]?.email);
         setUserOrders(filteredOrders);
         console.log("fetching orders:", orders)
+          console.log("fetching user orders:", userOrders)
+        
     } catch (error) {
         console.error("Error fetching orders:", error)
     }
@@ -139,8 +141,8 @@ const fetchOrder = async()=>{
             
                 <th scope="col" class="px-2 py-3">
                     ID
-                </th>
-                <th scope="col" class="px-2 py-3">
+             </th>
+            <th scope="col" class="px-2 py-3">
                     Qty
                 </th>
                 <th scope="col" class="px-2 py-3">

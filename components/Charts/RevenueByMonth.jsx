@@ -81,7 +81,7 @@ function formatChange(payload, percentageChange, absoluteChange) {
   return `${formattedPercentage} (${formattedAbsolute})`;
 }
 
-export default function Example() {
+export default function RevenueByMonth() {
   const [datas, setDatas] = useState(null);
   const payload = datas?.payload[0];
 
@@ -105,7 +105,7 @@ export default function Example() {
 
   return (
     <>
-      <Card className="sm:mx-auto sm:max-w-lg">
+      <Card className="">
         <p className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">
           Revenue by month
         </p>
@@ -142,12 +142,13 @@ export default function Example() {
         <AreaChart
           data={data}
           index="date"
+          
           categories={['revenue']}
-          showLegend={false}
-          showYAxis={false}
-          showGradient={false}
+          showLegend={true}
+          showYAxis={true}
+          showGradient={true}
           startEndOnly={true}
-          className="-mb-2 mt-8 h-48"
+          className="-mb-2 mt-8 bg-green  h-48"
           customTooltip={(props) => {
             if (props.active) {
               setDatas((prev) => {

@@ -4,7 +4,7 @@ import ChartOne from "../../../components/Charts/ChartOne";
 import ChartThree from "../../../components/Charts/ChartThree";
 import ChartTwo from "../../../components/Charts/ChartTwo";
 import ChatCard from "../../../components/Chat/ChatCard";
-import TableOne from "../../../components/Tables/TableOne";
+import CustomersTable from "../../../components/Tables/CustomersTable";
 import CardDataStats from "../../../components/CardDataStats";
 // import Map from "../../../components/Maps/TestMap";
 // without this the component renders on server and throws an error
@@ -21,12 +21,14 @@ const MapOne = dynamic(() => import("../../../components/Sidebar/Maps/MapOne"), 
 import { useSelector } from "react-redux";
 import useData from "../../../hooks/useData";
 
-import useOrder from '../../../hooks/useOrder'
+import useCustomer from '../../../hooks/useCustomer'
 import useGetProducts from "../../../hooks/useGetProducts";
 import Link from "next/link";
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import fetchProductData from '../../../lib/fetchProductData'
 import Review from "./../../../components/Review"
+
+
 const queryClient = new QueryClient()
 
 
@@ -43,7 +45,7 @@ const ECommerce = ({merch}) => {
    const [total, setTotal] = useState('')
   
    const { data2, isLoading2, error2} = useGetProducts(`https://altclan-brands-api-1-1.onrender.com/api/merchandises`)
-  const { data, isLoading, error} = useData('https://altclan-api.onrender.com/api/orders/')
+  const { data, isLoading, error} = useCustomer('https://altclan-brands-api-1-1.onrender.com/api/customers/')
 
 
     useEffect(() => {
@@ -56,11 +58,11 @@ const ECommerce = ({merch}) => {
   useEffect(() => {
 
     const productResults = data2?.filter((product) => product.brand_name?.toLowerCase().includes(user[0]?.brand_name.toLowerCase()) );
-    const orderResults = data?.filter((order) => order.name_of_brand?.toLowerCase().includes(user[0]?.brand_name.toLowerCase()) );
+    const customerResults = data?.filter((customer) => customer.full_name?.toLowerCase().includes(user[0]?.brand_name.toLowerCase()) );
     const sales = data?.filter((order) => order?.delivered == true );
 
     setProductResult(productResults);
-    setOrderResult(orderResults)
+    setOrderResult(customerResults)
     setSalesResult(sales)
     var total = data?.reduce((accum, product) => accum + product.total_amount, 0)
     console.log('orders total: ', total)
@@ -181,7 +183,7 @@ const ECommerce = ({merch}) => {
        
       
       </div>
-      <TableOne />
+      <CustomersTable />
        
       <div className="mt-4 p-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
      

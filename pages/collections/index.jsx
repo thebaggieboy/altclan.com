@@ -205,9 +205,9 @@ export default function Collection() {
             <link rel="icon" href="/alteclan_logo.jpg" />
        </Head> 
    <HeaderTab/>
-    <div className={styles.content}>
+    <div className='p-5'>
   
-        <div className="grid sm:grid-cols-3 gap-12  mx-auto">
+        <div className="grid sm:grid-cols-3 gap-12  mt-10 mx-auto">
         {products.map((product) => (
           <div key={product.id} className={styles.card}>
             <div className={styles.container}>

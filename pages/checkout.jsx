@@ -85,9 +85,32 @@ export default function Checkout({ merchs }) {
     }
 
 
-  const makePayment = () => {
+  const makePayment = async () => {
     console.log("Payment button clicked")
-    // get paystack_charge_id
+
+    const paymentData = {
+      user: email,
+      paystack_charge_id: ref,
+      paystack_reference_number: ref,
+
+      amount: amount,
+      status: "completed",
+
+
+    }
+
+    try {
+      const response = await updateFn(paymentData);
+      console.log("Payment response:", response);
+      
+      if (response) {
+        await createOrder();
+        //dispatch(clearCart());
+        //router.push('/success');
+      }
+    } catch (err) {
+      console.error("Payment failed:", err);
+    }
   }
   const { isPending: useOrderPending, error: useOrderError, mutateAsync: orderFn, data: useOrderData } = useOrder('https://altclan-api.onrender.com/api/order/', orderSuccess, USER_TYPES.user)
   const currentDate = new Date().toLocaleDateString();
@@ -96,17 +119,17 @@ export default function Checkout({ merchs }) {
   const createOrder = async()=>{
     const orderItems = cartItems.map(item => String(item)); 
     cartOrders.push(cartItems)
-    console.log("Cart ORders: ", cartOrders)
-    console.log("Cders: ", cartOrders)
+    console.log("Orders: ", cartOrders)
+    
     const orderUrl = `https://altclan-brands-api-1-1.onrender.com/api/orders/`
     const paymentUrl =""
-    console.log("Creating a new order for items in cart.")
+  
     const res = await fetch(orderUrl, {
       method: "POST",
       body: JSON.stringify({
          user:user?.[0]?.email,
          item:cartOrders,
-         total_amount:grandTotal
+         //total_amount:grandTotal
 
          
         } ),
@@ -140,8 +163,8 @@ export default function Checkout({ merchs }) {
     text: "Pay Now",
     onSuccess: () => {
   
-      createOrder()
-      
+      //createOrder()
+      makePayment()
 
       
       //dispatch(clearCart())

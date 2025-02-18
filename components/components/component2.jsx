@@ -30,8 +30,7 @@ export default function mainColumn() {
                             </span>
 
                             <p className={styles.welcomeText}>
-                                Celebrate alternative style, non-conformity, creativity, and self-expression through our curated collection of sustainable aesthetics, ethical & unethical fashion. 
-                                From vintage to goth, punk to bohemian, embrace your unique style with us.
+                                Celebrate creativity, and self-expression through our curated collection of aesthetics & alte clothing brands. 
                             </p>
                             <br />
                             <div className={styles.signUpBrandCont}>
