@@ -114,6 +114,28 @@ throw error
 
   return (
      <div key={brand.id} className={styles.brandProfileContent}>
+<Head>
+  {/* OpenGraph Meta Tags */}
+  <meta property="og:title" content={`${brand?.brand_name} - ALTCLAN`} />
+  <meta property="og:description" content={`Explore ${brand?.brand_name}'s alternative fashion collection on ALTCLAN. ${brand?.brand_bio}`} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={`https://altclan.com/brands/${brand?.id}`} />
+  <meta property="og:image" content={brand?.brand_logo} />
+  <meta property="og:site_name" content="ALTCLAN" />
+  {/* Additional Meta Tags */}
+  <meta name="description" content={`Explore ${brand?.brand_name}'s alternative fashion collection on ALTCLAN. ${brand?.brand_bio}`} />
+  <meta name="keywords" content={`${brand?.brand_name}, alternative fashion, altclan, ${brand?.brand_type}`} />
+  <meta name="author" content="ALTCLAN" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{brand?.brand_name} - ALTCLAN</title>
+  {/* Twitter Meta Tags */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={`${brand?.brand_name} - ALTCLAN`} />
+  <meta name="twitter:description" content={`Explore ${brand?.brand_name}'s alternative fashion collection on ALTCLAN. ${brand?.brand_bio}`} />
+  <meta name="twitter:image" content={brand?.brand_logo} />
+  <meta name="twitter:site" content="@altclan" />
+  <meta name="twitter:creator" content="@altclan" />
+</Head>
       		<div className="ml-5 p-2">
    <button type="button" onClick={()=> router.back()} class="w-full flex items-center justify-center w-1/2 px-5 py-2 text-sm text-black transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
     <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">

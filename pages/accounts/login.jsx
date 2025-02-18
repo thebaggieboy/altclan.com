@@ -143,10 +143,24 @@ export default function SignUp() {
               name="description"
               content="Login to continue."
             />
-              <meta name="keywords"
-                    content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+            <meta name="keywords"
+                  content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/alteclan_logo.jpg" />
+            
+            {/* OpenGraph Meta Tags */}
+            <meta property="og:title" content="Login - ALTCLAN" />
+            <meta property="og:description" content="Login to your ALTCLAN account to access your profile, orders, and more" />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://altclan.com/accounts/login" />
+            <meta property="og:site_name" content="ALTCLAN" />
+            
+            {/* Twitter Meta Tags */}
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Login - ALTCLAN" />
+            <meta name="twitter:description" content="Login to your ALTCLAN account to access your profile, orders, and more" />
+            <meta name="twitter:site" content="@altclan" />
+            <meta name="twitter:creator" content="@altclan" />
        </Head> 
 		<div className="">
 			<div className={styles.loginContainer}>

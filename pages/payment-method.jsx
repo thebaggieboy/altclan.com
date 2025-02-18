@@ -92,6 +92,21 @@ let orderResults = []
   return (
     <> 
       {updateMessage == 'success' ? brandProfileSuccess : ""}
+<Head>
+  {/* OpenGraph Meta Tags */}
+  <meta property="og:title" content="Payment Methods - ALTCLAN" />
+  <meta property="og:description" content="Manage your payment methods and saved cards on ALTCLAN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://altclan.com/payment-method" />
+  <meta property="og:site_name" content="ALTCLAN" />
+  
+  {/* Twitter Meta Tags */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Payment Methods - ALTCLAN" />
+  <meta name="twitter:description" content="Manage your payment methods and saved cards on ALTCLAN" />
+  <meta name="twitter:site" content="@altclan" />
+  <meta name="twitter:creator" content="@altclan" />
+</Head>
 
 <div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-2 xl:mx-auto" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
   <h1 class="border-b  text-4xl ml-10 font-semibold">Profile</h1>

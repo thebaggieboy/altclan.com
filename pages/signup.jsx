@@ -22,6 +22,16 @@ const Signup = () => {
         <Head>
        <title>Altclan - Create an account</title>
             <meta charset="UTF-8" />
+            <meta property="og:title" content="Altclan - Create an account" />
+            <meta property="og:description" content="Login to your user or brand account and continue exploring our community of aesthetics." />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://altclan.com/signup" />
+            <meta property="og:image" content="/alteclan_logo.jpg" />
+            
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Altclan - Create an account" />
+            <meta name="twitter:description" content="Login to your user or brand account and continue exploring our community of aesthetics." />
+            <meta name="twitter:image" content="/alteclan_logo.jpg" />
             <meta
               name="description"
               content="Login to your user or brand account and continue exploring our community of aesthetics."
@@ -97,3 +107,5 @@ const Signup = () => {
 }
 
 export default Signup;
+
+

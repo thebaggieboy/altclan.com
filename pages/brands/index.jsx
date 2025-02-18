@@ -61,6 +61,19 @@ fetchBrands()
               <meta name="keywords"
                     content="altclan, altclan login, login, altclan signup, login altclan" />
                     <meta name="author" content="Altclan"></meta>
+            {/* OpenGraph Meta Tags */}
+            <meta property="og:title" content="Alternative Fashion Brands - ALTCLAN" />
+            <meta property="og:description" content="Explore alternative fashion brands and discover unique styles on ALTCLAN" />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://altclan.com/brands" />
+            <meta property="og:site_name" content="ALTCLAN" />
+            
+            {/* Twitter Meta Tags */}
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Alternative Fashion Brands - ALTCLAN" />
+            <meta name="twitter:description" content="Explore alternative fashion brands and discover unique styles on ALTCLAN" />
+            <meta name="twitter:site" content="@altclan" />
+            <meta name="twitter:creator" content="@altclan" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/alteclan_logo.jpg" />
             <script src="https://upload-widget.cloudinary.com/latest/global/all.js" type="text/javascript"></script>  

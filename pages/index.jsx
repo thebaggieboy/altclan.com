@@ -64,15 +64,28 @@ export default function Home() {
             <meta charset="UTF-8" />
             <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
             <meta
-              name="description"
+              name="description" 
               content="Explore limited edition items, exclusive alternative style & clothing brands "
             />
-              <meta name="keywords"
-                    content="alternative clothing, alternative fashion,Goth & Alternative Clothing,   fashion community, aesthetics, altclan fashion, altclan community, community of aesthetics, alternative fashion , alte " />
+            <meta name="keywords"
+                  content="alternative clothing, alternative fashion,Goth & Alternative Clothing,   fashion community, aesthetics, altclan fashion, altclan community, community of aesthetics, alternative fashion , alte " />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="google-site-verification" content="5EKq2n_Ml30RyX_JkTTWG8XB2as2tWWkEEfLjPn9go4" />
             <link rel="icon" href="/alteclan_logo.jpg" />
-            <meta name="author" content="Altclan"></meta>
+            <meta name="author" content="Altclan" />
+
+            {/* Open Graph meta tags */}
+            <meta property="og:title" content="Altclan - Community of aesthetics." />
+            <meta property="og:description" content="Explore limited edition items, exclusive alternative style & clothing brands " />
+            <meta property="og:type" content="website" />
+            <meta property="og:image" content="/alteclan_logo.jpg" />
+            <meta property="og:url" content="https://altclan.store" />
+
+            {/* Twitter Card meta tags */}
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Altclan - Community of aesthetics." />
+            <meta name="twitter:description" content="Explore limited edition items, exclusive alternative style & clothing brands " />
+            <meta name="twitter:image" content="/alteclan_logo.jpg" />
           </Head>
           <HeaderTab />
 

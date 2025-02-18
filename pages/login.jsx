@@ -13,6 +13,17 @@ const router = useRouter();
        <Head>
        <title>Altclan - Login to your account</title>
             <meta charset="UTF-8" />
+            <meta property="og:title" content="Altclan - Login to your account" />
+            <meta property="og:description" content="Login to your user or brand account and continue exploring or community of aesthetics" />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://altclan.com/login" />
+            <meta property="og:image" content="/alteclan_logo.jpg" />
+            <meta property="og:site_name" content="Altclan" />
+
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Altclan - Login to your account" />
+            <meta name="twitter:description" content="Login to your user or brand account and continue exploring or community of aesthetics" />
+            <meta name="twitter:image" content="/alteclan_logo.jpg" />
             <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
             <meta
               name="description"

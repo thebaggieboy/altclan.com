@@ -190,6 +190,30 @@ export default function Checkout({ merchs }) {
   switch (step) {
     case 1:
       return (
+     <>
+        <Head>
+          <title>Checkout - ALTCLAN</title>
+          <meta name="description" content="Complete your purchase securely on ALTCLAN" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="keywords" content="checkout, payment, shopping cart, ALTCLAN, alternative fashion, secure checkout" />
+          <meta name="robots" content="index, follow" />
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta name="language" content="English" />
+          
+          {/* OpenGraph Meta Tags */}
+          <meta property="og:title" content="Checkout - ALTCLAN" />
+          <meta property="og:description" content="Complete your purchase securely on ALTCLAN" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://altclan.com/checkout" />
+          <meta property="og:site_name" content="ALTCLAN" />
+          
+          {/* Twitter Meta Tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Checkout - ALTCLAN" />
+          <meta name="twitter:description" content="Complete your purchase securely on ALTCLAN" />
+          <meta name="twitter:site" content="@altclan" />
+          <meta name="twitter:creator" content="@altclan" />
+        </Head>
         <section>
           <div className="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
 
@@ -263,6 +287,7 @@ export default function Checkout({ merchs }) {
           </div>
           <br /><br />
         </section>
+     </>
       )
     case 2:
       return (

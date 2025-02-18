@@ -82,6 +82,21 @@ export default function Settings() {
   return (
     <> 
       {updateMessage == 'success' ? brandProfileSuccess : ""}
+<Head>
+  {/* OpenGraph Meta Tags */}
+  <meta property="og:title" content="My Profile - ALTCLAN" />
+  <meta property="og:description" content="Manage your ALTCLAN profile, orders, payment methods and more" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={`https://altclan.com/profile/${user[0]?.id}`} />
+  <meta property="og:site_name" content="ALTCLAN" />
+  
+  {/* Twitter Meta Tags */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="My Profile - ALTCLAN" />
+  <meta name="twitter:description" content="Manage your ALTCLAN profile, orders, payment methods and more" />
+  <meta name="twitter:site" content="@altclan" />
+  <meta name="twitter:creator" content="@altclan" />
+</Head>
 
 <div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-2 xl:mx-auto" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:1}}>
 <div className="ml-5 mt-2">

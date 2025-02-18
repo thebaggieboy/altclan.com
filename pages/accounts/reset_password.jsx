@@ -10,6 +10,7 @@ import useLogin from "../../hooks/useLogin";
 
 
 
+
 export default function ForgotPassword() {
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
@@ -84,6 +85,23 @@ export default function ForgotPassword() {
 
 	return (
 		<div className="">
+			<Head>
+				<title>Reset Password | ALTCLAN</title>
+				<meta name="description" content="Reset your ALTCLAN account password. Enter your email to receive a password reset link." />
+				
+				{/* OpenGraph Meta Tags */}
+				<meta property="og:title" content="Reset Password | ALTCLAN" />
+				<meta property="og:description" content="Reset your ALTCLAN account password. Enter your email to receive a password reset link." />
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://altclan.com/accounts/reset_password" />
+				<meta property="og:image" content="https://altclan.com/alteclan_logo.jpg" />
+				
+				{/* Twitter Meta Tags */}
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:title" content="Reset Password | ALTCLAN" />
+				<meta name="twitter:description" content="Reset your ALTCLAN account password. Enter your email to receive a password reset link." />
+				<meta name="twitter:image" content="https://altclan.com/alteclan_logo.jpg" />
+			</Head>
 			<div className={styles.loginContainer}>
 				<div className={styles.columnImage}>
 					<img
