@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/router'
 import { selectUser } from '../../features/user/userSlice'
-
+import Head from 'next/head';
 import Link from "next/link"
 
 export default function Settings() {

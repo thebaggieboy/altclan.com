@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import styles from "../styles/profile.module.css";
 import Link from "next/link"
 import { selectUser } from '../features/user/userSlice'
-
+import Head from 'next/head';
 
 export default function Orders() {
 

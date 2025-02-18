@@ -9,7 +9,7 @@ import useAddFollowers from '../../hooks/useAddFollowers';
 import { selectBrandUser } from '../../features/brands/brandUserSlice';
 import { useSearchParams } from 'next/navigation';
  
-
+import Head from 'next/head';
 
 export async function getServerSideProps(context) {
   const id = context.params.id
