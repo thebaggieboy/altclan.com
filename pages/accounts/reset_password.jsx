@@ -8,7 +8,7 @@ import { selectUser, setUser } from "../../features/user/userSlice";
 import Loader from "../../components/Loader";
 import useLogin from "../../hooks/useLogin";
 
-
+import Head from "next/head"
 
 
 export default function ForgotPassword() {
