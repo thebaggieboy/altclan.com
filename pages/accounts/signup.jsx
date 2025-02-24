@@ -270,3 +270,7 @@ export default function SignUp() {
 	);
 
 }
+
+export async function getServerSideProps() {
+	return { props: {} };
+  }
