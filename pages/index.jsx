@@ -79,7 +79,7 @@ export default function Home() {
             <meta property="og:description" content="Explore limited edition items, exclusive alternative style & clothing brands " />
             <meta property="og:type" content="website" />
             <meta property="og:image" content="/alteclan_logo.jpg" />
-            <meta property="og:url" content="https://altclan.store" />
+            <meta property="og:url" content="https://altclan.com" />
 
             {/* Twitter Card meta tags */}
             <meta name="twitter:card" content="summary_large_image" />

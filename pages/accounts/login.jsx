@@ -136,7 +136,7 @@ export default function SignUp() {
 	
 	return (
 		<>
-		<Head>
+		<Head key="loginHead">
        <title>Altclan - Login as a user </title>
             <meta charset="UTF-8" />
             <meta
