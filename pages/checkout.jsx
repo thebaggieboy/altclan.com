@@ -18,7 +18,8 @@ import { useSearchParams } from 'next/navigation';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Head from 'next/head'
- 
+import CheckoutForm from '../components/checkout'
+import { stripe } from '../lib/stripe' 
  
 export async function getServerSideProps({req}) {
   const res = await fetch(
@@ -47,6 +48,9 @@ export async function getServerSideProps({req}) {
      paymentProvider = 'stripe'; // Default fallback
    }
    
+
+  // Create PaymentIntent as soon as the page loads
+
 
   return {
     props: { merchs: data },
@@ -86,6 +90,16 @@ export default function Checkout({ merchs }) {
   const amount = grandTotal * 100
   const email = user?.[0]?.email
   const [cartOrders, setCartOrders] = useState([]);
+
+  const { client_secret: clientSecret } =  stripe.paymentIntents.create({
+    amount: amount,
+    currency: 'eur',
+    // In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
+    automatic_payment_methods: {
+      enabled: true,
+    },
+  })
+
 
   const randomAlphaNumeric = length => {
     let s = '';
@@ -467,7 +481,9 @@ export default function Checkout({ merchs }) {
               </div>
 
               <PaystackButton className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white" {...componentProps} />
-
+              <div id="checkout">
+                <CheckoutForm clientSecret={clientSecret} />
+              </div>
             </div>
             <br /><br />
           </div>

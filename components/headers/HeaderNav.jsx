@@ -564,7 +564,7 @@ export default function HeaderNav() {
 										<>
 											<Link
 												className="text-sm font-bold text-gray-700 hover:text-gray-800"
-												href={`${user[0]?.id !== null && user?.[0].hasOwnProperty("brand_name") ? `/brands/profile/${user[0]?.id}?brand=${user?.[0]?.brand_name}`: "/profile/" + user?.[0]?.email}`}
+												href={`${user[0]?.id !== null && user?.[0]?.hasOwnProperty("brand_name") ? `/brands/profile/${user[0]?.id}?brand=${user?.[0]?.brand_name}`: "/profile/" + user?.[0]?.email}`}
 											>
 												Profile
 											</Link>
