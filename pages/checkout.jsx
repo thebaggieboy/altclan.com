@@ -20,17 +20,37 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Head from 'next/head'
  
  
-export async function getServerSideProps(context) {
+export async function getServerSideProps({req}) {
   const res = await fetch(
     `https://altclan-brands-api-1-1.onrender.com/api/merchandises/`
   );
-  //const res = await fetch(`http://127.0.0.1:8000/api/merchandises/₦{id}`);
+ 
   const data = await res.json();
-  console.log(data);
+   // Get the IP address from the request headers
+   const forwarded = req.headers["x-forwarded-for"];
+   const ip = forwarded ? forwarded.split(',')?.[0] : req.connection.remoteAddress;
+   
+   // Use a geolocation service to get the country
+   const response = await fetch(`https://ipapi.co/${ip}/json/`);
+   const geoData = await response.json();
+   const country = geoData.country_code;
+   console.log("Geo Data: ", geoData)
+   console.log("Country: ", country)
+   
+   // Determine payment provider based on country
+   let paymentProvider;
+   if (country === 'NG') {
+     paymentProvider = 'paystack';
+   } else if (country === 'US') {
+     paymentProvider = 'stripe';
+   } else {
+     paymentProvider = 'stripe'; // Default fallback
+   }
+   
 
   return {
     props: { merchs: data },
-  }; ``
+  }; 
 }
 
 

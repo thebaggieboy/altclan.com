@@ -59,7 +59,7 @@ fetchBrands()
               content="Explore alternative fashion brands"
             />
               <meta name="keywords"
-                    content="altclan, altclan login, login, altclan signup, login altclan" />
+                    content="altclan, alternative style, alte, Y2K, altlan comunity" />
                     <meta name="author" content="Altclan"></meta>
             {/* OpenGraph Meta Tags */}
             <meta property="og:title" content="Alternative Fashion Brands - ALTCLAN" />

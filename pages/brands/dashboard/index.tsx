@@ -59,11 +59,9 @@ const ECommerce = ({merch}) => {
   console.log(nextMonthNumber);
   console.log(nextMonthNumber);  
     useEffect(() => {
-		if (user == null) {
-			router.push("/brands/login");
-		}
-  
-
+      // if (user == null) {
+      // router.push("/brands/login");
+      // }
 	}, [user]);
   useEffect(() => {
 
